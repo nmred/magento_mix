@@ -39,6 +39,7 @@ class Mage_Catalog_Block_Product_View_Options_Type_Select
      * Return html for control element
      *
      * @return string
+       
      */
     public function getValuesHtml()
     {
