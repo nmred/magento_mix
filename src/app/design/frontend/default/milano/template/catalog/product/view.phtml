@@ -8,8 +8,168 @@ $_use_share = $_share_config['use_share'] == 1;
 $_share_code = $_share_config['share_code'];
 $_shortDescription = $_product->getShortDescription();
 ?>
+<style>
+.nmred_color_con {
+	color: rgb(0, 0, 0);
+	display: block;
+	float: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	height: auto;
+	text-align: left;
+	width: 313px;
+}
+
+.nmred_color_top {
+	-webkit-background-clip: border-box;
+	-webkit-background-origin: padding-box;
+	-webkit-background-size: auto;
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color: rgba(0, 0, 0, 0);
+	background-origin: padding-box;
+	background-size: auto;
+	border-top-color: rgb(204, 204, 204);
+	border-top-style: dashed;
+	border-top-width: 1px;
+	color: rgb(0, 0, 0);
+	display: block;
+	float: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	height: 15px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 10px;
+	text-align: left;
+	width: 313px;
+}
+
+.nmred_color_title {
+	color: rgb(0, 0, 0);
+	display: block;
+	float: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	height: 15px;
+	text-align: left;
+	width: 126px;
+}
+.nmred_color_selected {
+	background-color: rgb(160, 37, 32);
+	color: rgb(0, 0, 0);
+	display: block;
+	float: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	height: 10px;
+	margin-bottom: 0px;
+	margin-left: 5px;
+	margin-right: 0px;
+	margin-top: 4px;
+	text-align: left;
+	width: 10px;
+}
+.nmred_color_selecte_name {
+	color: rgb(136, 136, 136);
+	display: block;
+	float: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	height: 15px;
+	margin-bottom: 0px;
+	margin-left: 3px;
+	margin-right: 0px;
+	margin-top: 0px;
+	text-align: left;
+	width: auto;
+}
+.nmred_color_box {
+	color: rgb(0, 0, 0);
+	display: block;
+	float: left;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding-bottom: 12px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	text-align: left;
+	width: 313px;
+}
+.nmred_color_box a {
+	-webkit-background-clip: border-box;
+	-webkit-background-origin: padding-box;
+	-webkit-background-size: auto;
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color: rgba(0, 0, 0, 0);
+	background-origin: padding-box;
+	background-size: auto;
+	color: rgb(162, 63, 133);
+	cursor: pointer;
+	display: block;
+	float: left;
+	font-family: Verdana;
+	font-size: 12px;
+	height: 14px;
+	margin-bottom: 3px;
+	margin-left: 0px;
+	margin-right: 3px;
+	margin-top: 0px;
+	outline-color: rgb(162, 63, 133);
+	outline-style: none;
+	outline-width: 0px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	text-align: left;
+	text-decoration: none;
+	width: 14px;
+}
+
+.nmred_color_box .background {
+	background-image: url(http://www.forherandforhim.com/catalog/view/theme/default/image/product/colorselectborder.png);
+}
+.nmred_color_box a span {
+	background-color: rgb(242, 207, 178);
+	color: rgb(162, 63, 133);
+	cursor: pointer;
+	display: block;
+	float: left;
+	font-family: Verdana;
+	font-size: 12px;
+	height: 10px;
+	margin-bottom: 0px;
+	margin-left: 2px;
+	margin-right: 0px;
+	margin-top: 2px;
+	text-align: left;
+	width: 10px;
+}
+.nmred_color_box a label {
+	color: rgb(51, 51, 51);
+	cursor: pointer;
+	display: none;
+	float: left;
+	font-family: Verdana;
+	font-size: 12px;
+	height: auto;
+	margin-bottom: 0px;
+	margin-left: 8px;
+	margin-right: 0px;
+	margin-top: 7px;
+	text-align: left;
+	width: auto;
+}
+</style>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+	var consomerOnload = function() {
     <?php 
 	
 	$catesIds = array($_product->getCategoryId());
@@ -26,7 +186,6 @@ $_shortDescription = $_product->getShortDescription();
 	}
 	if ($priceLineView) {
     ?>
-var consomerOnload = function() {
         var nmredpriceMin=Number.MAX_VALUE;
         var obj = null;
         if ($$(".addtocont .price-box p .price")) {
@@ -48,13 +207,50 @@ var consomerOnload = function() {
 		$$(".addtocont .price-box .special-price .price")[0].style.cssText="font-size: 25px;"
 	    }
         }
+<?php  } ?>
+		
+		// 颜色色块代码======start
+		var textDom = '<div class="nmred_color_con"><div class="nmred_color_top"><div class="nmred_color_title">Dress Color Selected: </div><div class="nmred_color_selected"></div><div class="nmred_color_selecte_name">Red</div></div><div class="nmred_color_box"></div></div>'
+
+		Element.insert(jQuery(".input-box[attrname='Color']")[0],{after: textDom});
+		var data = jQuery(".input-box[attrname='Color'] option");
+		var colorMap = {"Apricot Blush":"rgb(240, 192, 178)","Barely Pink":"rgb(255, 219, 223)","Black":"rgb(34, 35, 37)","Blue":"rgb(49, 80, 145)","Blue Topaz":"rgb(109, 157, 219)","Blush":"rgb(246, 211, 185)","Bright White":"rgb(242, 242, 240)","Burgundy":"rgb(60, 33, 42)","Burnt Sienna Organge":"rgb(148, 69, 64)","Cashmere Blue":"rgb(181, 212, 232)","Champagne":"rgb(243, 213, 151)","Charcoal Grey":"rgb(139, 143, 144)","Chocolate":"rgb(69, 56, 48)","Classic Blue":"rgb(50, 61, 125)","Coral":"rgb(232, 138, 130)","Creamy White":"rgb(236, 235, 207)","Deep Claret":"rgb(117, 37, 62)","Dusty Coral":"rgb(250, 182, 171)","Dusty Rose":"rgb(159, 119, 127)","English Rose":"rgb(217, 187, 189)","Fuchsia":"rgb(154, 63, 114)","Gold":"rgb(185, 166, 125)","Green":"rgb(50, 130, 101)","Green Moss":"rgb(132, 135, 64)","Grey":"rgb(160, 160, 160)","Gumdrop Yellow":"rgb(241, 236, 155)","Hint of Mint":"rgb(180, 233, 215)","Hunter Green":"rgb(22, 79, 60)","Ivory":"rgb(234, 223, 205)","Lavender Grey":"rgb(162, 141, 172)","Mandarin Orange":"rgb(249, 146, 69)","Marine Green":"rgb(102, 182, 173)","Midnight Navy":"rgb(32, 41, 48)","Mint Green":"rgb(201, 228, 222)","Mustard":"rgb(180, 162, 88)","Pastel Blue":"rgb(182, 215, 224)","Pastel Green":"rgb(158, 187, 165)","Pastel Lilac":"rgb(205, 198, 226)","Peach Pink":"rgb(214, 148, 134)","Peach Sherbet":"rgb(244, 192, 171)","Peacock Green":"rgb(31, 153, 142)","Peony":"rgb(162, 48, 97)","Pink Carnation":"rgb(238, 157, 174)","Plum Purple":"rgb(65, 46, 73)","Pool Blue":"rgb(139, 213, 216)","Powder Pink":"rgb(210, 195, 198)","Red":"rgb(148, 34, 34)","Royal Purple":"rgb(102, 76, 137)","Sand":"rgb(159, 153, 137)","Seafoam Green":"rgb(208, 233, 192)","Snow White":"rgb(239, 240, 235)","Soft Pink":"rgb(231, 220, 214)","Spiced Coral":"rgb(255, 138, 126)","Steel Grey":"rgb(146, 155, 164)","Storm Grey":"rgb(172, 184, 182)","Tender Yellow":"rgb(226, 223, 180)","Turquoise":"rgb(137, 208, 200)","Twilight Blue":"rgb(49, 56, 102)","Vintage Violet":"rgb(77, 43, 80)","Warm Grey":"rgb(132, 129, 122)","Warm Taupe":"rgb(160, 134, 101)","Winter Teal":"rgb(36, 103, 112)","Ash Rose":"rgb(203, 183, 184)","Blood Orange":"rgb(210, 80, 54)","Caramel":"rgb(203, 168, 101)","Cloud Pink":"rgb(211, 182, 176)","Coca Brown":"rgb(87, 63, 51)","Creamy Gold":"rgb(234, 200, 137)","Cyan Blue":"rgb(123, 189, 215)","Frosty Blue":"rgb(185, 216, 234)","Hot Pink":"rgb(236, 126, 165)","Olivel Green":"rgb(179, 187, 110)","Pink Lavender":"rgb(224, 162, 199)","Sky Grey":"rgb(201, 202, 198)","Yellow":"rgb(235, 202, 105)"};
+		var colorInputName = jQuery(".input-box[attrname='Color'] select").attr('name');
+		var colorHtml = '<input id="colorInput" name="' + name + '" type="hidden"/>';
+
+		var firstTitle =  data[1].innerHTML.trim();
+		var firstColor =  colorMap[firstTitle];
+		jQuery(".nmred_color_selecte_name").html(firstTitle);
+		jQuery(".nmred_color_selected").css("background-color", firstColor)
+
+		for(i = 1; i< data.length; i++) {
+			var title = data[i].innerHTML.trim();
+			var color = colorMap[title];
+			colorHtml += '<a value="' + data[i].value +'" onclick="changeColor(this);opConfig.reloadPrice();"><span style="background-color:' + color + '"></span><label>' + title +'</label></a>'
+		}
+		jQuery(".input-box[attrname='Color'] select").hide();
+		jQuery(".nmred_color_box").html(colorHtml);
+
+		// 颜色色块代码======end
     }
+
+	function changeColor(obj) {
+		var title = jQuery(obj).find("label").html();
+		var value = jQuery(obj).attr("value");
+		jQuery(obj).siblings().removeClass("background")
+		jQuery(obj).addClass("background");
+		var color = jQuery(obj).find("span").css("background-color");
+		jQuery(".nmred_color_selected").css("background-color", color)
+		jQuery(".nmred_color_selecte_name").html(title);
+		jQuery("#colorInput").val(value);
+		jQuery(".input-box[attrname='Color'] option[value='" + value + "']").selected();
+	}
+
     if (document.all) {
         window.attachEvent('onload', consomerOnload);
     } else {
         window.addEventListener('load', consomerOnload, false);
     }
-<?php  } ?>
 </script>    
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-view">
