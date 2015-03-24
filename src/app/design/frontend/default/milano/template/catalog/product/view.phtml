@@ -207,7 +207,7 @@ $_shortDescription = $_product->getShortDescription();
 <?php  } ?>
 		
 		// 颜色色块代码======start
-		var textDom = '<div class="nmred_color_con"><div class="nmred_color_top"><div class="nmred_color_title">Select Dress Color: </div><div class="nmred_color_selected"></div><div class="nmred_color_selecte_name">Red</div></div><div class="nmred_color_box"></div></div>'
+		var textDom = '<div class="nmred_color_con"><div class="nmred_color_top"><div class="nmred_color_title">Select Dress Color: </div><div class="nmred_color_selected"></div><div class="nmred_color_selecte_name"></div></div><div class="nmred_color_box"></div></div>'
 
 		Element.insert(jQuery(".input-box[attrname='Color']")[0],{after: textDom});
 		var data = jQuery(".input-box[attrname='Color'] option");
@@ -215,7 +215,7 @@ $_shortDescription = $_product->getShortDescription();
 		var colorInputName = jQuery(".input-box[attrname='Color'] select").attr('name');
 		var colorHtml = '<input id="colorInput" name="' + name + '" type="hidden"/>';
 
-		jQuery(".nmred_color_selected").css("background-color", "#000")
+		jQuery(".nmred_color_selected").css("background-color", "#fff")
 
 		for(i = 1; i< data.length; i++) {
 			var title = data[i].innerHTML.trim();
