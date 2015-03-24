@@ -17,7 +17,6 @@ $_shortDescription = $_product->getShortDescription();
 	font-size: 12px;
 	height: auto;
 	text-align: left;
-	width: 313px;
 }
 
 .nmred_color_top {
@@ -44,7 +43,6 @@ $_shortDescription = $_product->getShortDescription();
 	padding-right: 0px;
 	padding-top: 10px;
 	text-align: left;
-	width: 313px;
 }
 
 .nmred_color_title {
@@ -56,7 +54,7 @@ $_shortDescription = $_product->getShortDescription();
 	font-weight: normal;
 	height: 15px;
 	text-align: left;
-	width: 126px;
+	width: 131px;
 }
 .nmred_color_selected {
 	background-color: rgb(160, 37, 32);
@@ -100,7 +98,6 @@ $_shortDescription = $_product->getShortDescription();
 	padding-right: 0px;
 	padding-top: 0px;
 	text-align: left;
-	width: 313px;
 }
 .nmred_color_box a {
 	-webkit-background-clip: border-box;
@@ -210,7 +207,7 @@ $_shortDescription = $_product->getShortDescription();
 <?php  } ?>
 		
 		// 颜色色块代码======start
-		var textDom = '<div class="nmred_color_con"><div class="nmred_color_top"><div class="nmred_color_title">Dress Color Selected: </div><div class="nmred_color_selected"></div><div class="nmred_color_selecte_name">Red</div></div><div class="nmred_color_box"></div></div>'
+		var textDom = '<div class="nmred_color_con"><div class="nmred_color_top"><div class="nmred_color_title">Select Dress Color: </div><div class="nmred_color_selected"></div><div class="nmred_color_selecte_name">Red</div></div><div class="nmred_color_box"></div></div>'
 
 		Element.insert(jQuery(".input-box[attrname='Color']")[0],{after: textDom});
 		var data = jQuery(".input-box[attrname='Color'] option");
@@ -218,10 +215,7 @@ $_shortDescription = $_product->getShortDescription();
 		var colorInputName = jQuery(".input-box[attrname='Color'] select").attr('name');
 		var colorHtml = '<input id="colorInput" name="' + name + '" type="hidden"/>';
 
-		var firstTitle =  data[1].innerHTML.trim();
-		var firstColor =  colorMap[firstTitle];
-		jQuery(".nmred_color_selecte_name").html(firstTitle);
-		jQuery(".nmred_color_selected").css("background-color", firstColor)
+		jQuery(".nmred_color_selected").css("background-color", "#000")
 
 		for(i = 1; i< data.length; i++) {
 			var title = data[i].innerHTML.trim();
