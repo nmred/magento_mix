@@ -334,13 +334,19 @@ $_shortDescription = $_product->getShortDescription();
                 <?php if($_promoMessage = $this->getChildHtml('product_promo_message')): ?>
 				<?php
 					$catesIds = array($_product->getCategoryId());
-				    $cateObj = $_product->getCategory();
-					 if ($cateObj) {
+					$cateObj = $_product->getCategory();
+					$adLineView = true;
+					if ($cateObj) {
 						$parentCates = $_product->getCategory()->getParentIds();
 						$catesIds = array_merge($catesIds, $parentCates);
 						if (in_array(204, $catesIds) || in_array(208, $catesIds)) {
-							echo '<div class="clear">' . $this->getChildHtml('product_promo_message') . '</div>';
+							$adLineView = true;
+						} else {
+							$adLineView = false;
 						}
+					}
+					if ($adLineView) {
+						echo '<div class="clear">' . $this->getChildHtml('product_promo_message') . '</div>';
 					}
 				?>
                 <?php endif; ?>
