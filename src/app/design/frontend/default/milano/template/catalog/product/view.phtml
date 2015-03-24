@@ -10,6 +10,51 @@ $_shortDescription = $_product->getShortDescription();
 ?>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+    <?php 
+	
+	$catesIds = array($_product->getCategoryId());
+	$cateObj = $_product->getCategory();
+	$priceLineView = true;
+	if ($cateObj) {
+		$parentCates = $_product->getCategory()->getParentIds();
+		$catesIds = array_merge($catesIds, $parentCates);
+		if (in_array(204, $catesIds) || in_array(208, $catesIds)) {
+			$priceLineView = true;
+		} else {
+			$priceLineView = false;
+		}
+	}
+	if ($priceLineView) {
+    ?>
+var consomerOnload = function() {
+        var nmredpriceMin=Number.MAX_VALUE;
+        var obj = null;
+        if ($$(".addtocont .price-box p .price")) {
+            obj = $$(".addtocont .price-box .price");
+        } else {
+            obj = $$(".addtocont .price-box p .price");
+        }
+        
+        var flag = '';
+        obj.each(function(ele) {var price = parseFloat(ele.innerText.substr(1)); var flag = ele.innerText.substr(0, 1);if (price < nmredpriceMin) nmredpriceMin = price;})
+        if (nmredpriceMin != Number.MAX_VALUE && nmredpriceMin != 0 && !$$(".clear .tier-prices")[0]) {
+            //$$(".addtocont .price-box").each(function(ele) {ele.remove()})                             
+            var textDom = '<ul class="tier-prices product-pricing" id="nmredPrice"><li>Buy 2 for <span class="price">' + flag + (nmredpriceMin * 0.93).toFixed(2) +'</span> each</li><li>Buy 3-5 for <span class="price">' + flag + (nmredpriceMin * 0.88).toFixed(2) + '</span> each</li><li>Buy 6 or more for <span class="price">' + flag + (nmredpriceMin * 0.83).toFixed(2) + '</span> each</li></ul>'; 
+	    Element.insert($$(".addtocont .price-box")[0], {after: textDom});            $$(".addtocont")[0].style.cssText="width: 300px;";
+            $$(".addtocont .product-code")[0].style.cssText="width: 100%;";
+            $$(".addtocont .price-box")[0].style.cssText="width: 100px;float: left;margin-top: 33px;";
+            $$(".addtocont .tier-prices")[0].style.cssText="float:right;";
+	    if ($$(".addtocont .price-box .special-price .price")) {
+		$$(".addtocont .price-box .special-price .price")[0].style.cssText="font-size: 25px;"
+	    }
+        }
+    }
+    if (document.all) {
+        window.attachEvent('onload', consomerOnload);
+    } else {
+        window.addEventListener('load', consomerOnload, false);
+    }
+<?php  } ?>
 </script>    
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-view">
