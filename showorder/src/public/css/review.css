@@ -1,0 +1,78 @@
+.reviews { width: 1002px; border-top: 1px dashed #555555; margin: 20px 0 20px 0; float: left; }
+	.reviews .title { width: 1002px; color: #000000; font-size: 14px; text-align: center; border-bottom: 1px dashed #555555; padding: 10px 0 10px 0; float: left; }
+	.reviews .stitle { width: 999px; font-size: 12px; font-family: "Georgia"; margin: 10px 0 0 0; padding: 0 0 0 3px; float: left; }
+	.reviews .stitle a { color: #C2437A; font-size: 12px; font-family: "Verdana"; margin: 0 3px 0 0; float: right; }
+	.reviews .stitle span { color: #C2437A; margin: 0 4px 0 2px; float: right; }
+
+	.reviews .larrow, .reviews .rarrow { width: 23px; float: left; }
+	.reviews .larrow a, .reviews .rarrow a { width: 13px; height: 24px; background: url(../image/listarrow.jpg) no-repeat; float: left; }
+	.reviews .larrow a { margin: 70px 0 0 3px; }
+	.reviews .larrow a:hover { background-position: left bottom; }
+	.reviews .rarrow a { background-position: right top; margin: 70px 0 0 7px; }
+	.reviews .rarrow a:hover { background-position: right bottom; }
+	.reviews .listbox { width: 956px; height: 180px; margin: 15px 0 0 0; float: left; overflow: hidden; }
+	.reviews .listbox .slider { width: 36000px; height: 180px; float: left; }
+	.reviews .listbox .slider .perslider { width: 956px; height: 180px; float: left; overflow: hidden; }
+	.reviews .listbox .slider .perslider .persliderbox { width: 1000px; height: 180px; float: left; }
+	.reviews .listbox .slider .perslider .persliderbox .perbox { width: 180px; margin: 0 14px 0 0; float: left; }
+	.reviews .listbox .slider .perslider .persliderbox .perbox a.thumb { width: 180px; height: 130px; float: left; overflow: hidden; }
+	.reviews .listbox .slider .perslider .persliderbox .perbox a.thumb img { height: 130px; float: left; }
+	.reviews .listbox .slider .perslider .persliderbox .perbox .featured { margin: 8px 0 0; float: left; font-size: 80%; color: #555555;}
+
+	.floatgraybox .messagebox.reviewupload { width: 514px; background-color: transparent; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_top_bg { width: 488px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body_container { width: 500px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_lower_left { width: 257px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_lower_right { width: 257px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body { background: #FFFFFF; }
+
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox { width: 500px; height: 300px; float; left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .title { width: 500px; color: #C2437A; font-size: 18px; text-align: center; margin: 5px 0 10px 0; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox { width: 470px; color: #555555; margin: 0 0 10px 29px; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .left { margin: 6px 0 0 0; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .errmsg { font-size: 11px; margin: 7px 0 0 8px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .right { float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .right input { color: #555555; font-family: "Verdana"; border-top: 0; border-right: 0; border-bottom: 1px solid #888888; border-left: 0; font-size: 12px; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .right input[name='cc_email'] { width: 160px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .right #file_upload { margin: 5px 0 0 5px; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .right .uploading { color: #00AA00; font-size: 11px; margin: 8px 0 0 10px; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .right .uploadedimg { display: none; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .right #file_upload-queue { display: none; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox.nocontent { margin-bottom: 5px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox textarea { width: 420px; height: 85px; color: #888888; font-size: 10px; font-family: "Verdana"; border: 1px solid #888888; padding: 5px 10px; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .successmsg { width: 333px; height: 18px; color: #00AA00; font-size: 11px; margin: -5px 0 0 30px; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox a.submitbutton { width: 69px; height: 16px; background: url(../image/activity/color-guide/customsubmit.jpg) no-repeat; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox a.submitbutton:hover { background-position: left -16px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .errmsg { color: #FF6666; float: left; }
+
+	.floatgraybox .messagebox.reviewview { width: 814px; background-color: transparent; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_top_bg { width: 788px; }
+	.floatgraybox .messagebox.reviewview .messagebox_body_container { width: 800px; }
+	.floatgraybox .messagebox.reviewview .messagebox_lower_left { width: 407px; }
+	.floatgraybox .messagebox.reviewview .messagebox_lower_right { width: 407px; }
+	.floatgraybox .messagebox.reviewview .messagebox_body { background: #FFFFFF; }
+
+	.floatgraybox .messagebox.reviewview .messagebox_body .lbox { width: 600px; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist { width: 600px; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .larrow, .floatgraybox .messagebox.reviewview .messagebox_body .imglist .rarrow { width: 50px; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .larrow a, .floatgraybox .messagebox.reviewview .messagebox_body .imglist .rarrow a { width: 13px; height: 24px; background: url(../image/home/listarrow.jpg) no-repeat; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .larrow a { margin: 0 0 0 19px; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .larrow a:hover { background-position: left bottom; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .rarrow a { background-position: right top; margin: 0px 0 0 18px; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .rarrow a:hover { background-position: right bottom; }
+
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox { width: 500px; margin: 15px 0 0 0; float: left; overflow: hidden; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox { width: 36000px; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox .perimg { width: 500px; float: left; overflow: hidden; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox .perimg img { float: left; }
+
+	.floatgraybox .messagebox.reviewview .messagebox_body .rbox { width: 195px; color: #828282; font-size: 12px; font-family: "Muli"; padding: 20px 0 0 5px; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .rbox .title { width: 185px; font-size: 16px; font-family: "Verdana"; line-height: 22px; text-transform: uppercase; float: left; overflow-y: hidden; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .rbox .content { width: 175px; line-height: 18px; margin: 10px 0 0 0; padding: 0 20px 0 0; float: left; overflow-y: auto; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .rbox .content a { color: #D2A08A; font-size: 12px; font-family: "Muli"; word-break: break-all; }
+
+	.floatgraybox .messagebox.reviewview .messagebox_body .bbox { width: 780px; height: 160px; margin: 0 0 0 10px; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .bbox .title { width: 780px; height: 13px; color: #D2A08A; font-size: 13px; font-family: "Muli"; border-bottom: 1px solid #F1E7DB; padding: 0 0 6px 0; float: left; overflow-y: hidden; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .bbox .productlist { width: 780px; height: 120px; padding: 10px 0 10px 0; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .bbox .productlist a { margin: 0 10px 0 0; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .bbox .productlist a img { height: 120px; float: left; }

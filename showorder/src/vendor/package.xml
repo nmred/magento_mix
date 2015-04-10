@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.5" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>sso_sdk_client</name>
+ <channel>pears.grid.sina.com.cn</channel>
+ <summary>sdk for user login status</summary>
+ <description>check user login state</description>
+ <lead>
+  <name>phpor</name>
+  <user>junjie2</user>
+  <email>junjie2@staff.sina.com.cn</email>
+  <active>yes</active>
+ </lead>
+ <date>2014-12-01</date>
+ <time>11:39:16</time>
+ <version>
+  <release>0.6.10</release>
+  <api>0.3.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://wiki.intra.sina.com.cn/x/hQFwAQ">sso license</license>
+ <notes>
+http://wiki.intra.sina.com.cn/x/hQFwAQ
+ </notes>
+ <contents>
+  <dir baseinstalldir="sso/sdk/client/0.6.10" name="/">
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="9fc579d58d9a2c5eaa3b054c6c20f7b2" name="cookie/subp.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="fae7d36746bc1e804aa54f67a47cfd89" name="cookie/suesup.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="365377ff0abc03a58885c4a565631c7f" name="session/gsid.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="018ec7647ef37f7ab3567962d837e63d" name="session/http.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="a5206254515cb4cf82e77274ddf088e9" name="session/memcache.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="29bb2e641d9a81f6b775e90fae43da63" name="session/session.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="32917f5eaa0d1038ec8ca1d65699d4e7" name="session/sid.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="f298da9143076108962215e4e8124368" name="session/sus.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="d14ee8a8d7c5745c18cfedb8d87aa05e" name="session/ticket.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="00c309fdcf924d820ddb196f099c44d8" name="tools/counter/icounter.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="cc9699d3565697a21c6c542f3f69eedd" name="tools/counter/file.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="f3ad398c86af9ad67c6d3fb9ef1cbfe2" name="tools/counter/memcache.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="24d7e1aa80c88f99953c45894697d2a3" name="tools/localstorage/ilocalstorage.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="d696c22def6222f3571b3034079c6001" name="tools/localstorage/file.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="7f99e6f2c0ea769c59ff5a546efd7859" name="tools/logger/ilogger.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="c90e7d6740c512c0ead7df699d5a9e0e" name="tools/logger/file.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="5d797c567807963438b0a4fb8db2d933" name="tools/logger/udp.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="61218c03ebd94fd1aec3c202248526fb" name="tools/encrypt/rc4.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="01217a22e4209a370f5e0818db028137" name="tools/autoload.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="38f444141a7bed1bf5789d65501cf2f4" name="tools/base62.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="8e3d6b248d4c342a3bd415f6d7eab443" name="tools/base64.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="59bf8c9308b152183cf70b1818cf8eb9" name="tools/cookie.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="3fb9e1b4ee4c541a49bb545278aa1826" name="tools/counter.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="e0b3d9e2e92a78966ba39a41103d5bb8" name="tools/debugger.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="b03264b856f557fecf413a214e76dee2" name="tools/domain.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="2f5267fdaffb7b54ac84eac0744ec305" name="tools/http.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="486016e1502e2ce8c1a248a9e69fe605" name="tools/idc.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="31c17cfa48cc0572a06e558c8375a6bd" name="tools/ipc.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="8a5ea7739e18deb6017b2fb0e2e9529f" name="tools/log.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="52a492aedeb5792511b866be31a357c4" name="tools/memcache.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="9190cf80710bac2809bf94e285d24bc0" name="tools/request.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="d2800e6edaf0ff4f20113d5158e92c0a" name="tools/response.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="cf758b97442f5da232bd6f72fa9295a9" name="tools/string.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="62b804e1f667c3d5c18bf73814eea3e3" name="tools/timer.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="8c905a61db205912ad6b7e84deaf7e99" name="tools/util.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="0e9edaa79afe7705eec5c648ca314eaf" name="client.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="af98011d35bed8d1bdc6f61ed6674374" name="config.php" role="php" />
+   <file baseinstalldir="sso/sdk/client/0.6.10" md5sum="1565061ca5fedaeba73ae456b4b7dd63" name="user.php" role="php" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.1.2</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+  </required>
+  <optional>
+   <package>
+    <name>FirePHPCore</name>
+    <channel>pear.firephp.org</channel>
+   </package>
+  </optional>
+ </dependencies>
+ <phprelease />
+</package>
