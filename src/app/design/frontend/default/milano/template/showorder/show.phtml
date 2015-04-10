@@ -1,8 +1,8 @@
 <?php $data = $this->getShowData();?>
 <?php $mobile = Mage_Util::isMobile(); if (!$mobile) { ?>
-<link rel="stylesheet" href="media/nmred/css/review.css">
+<link rel="stylesheet" href="/media/nmred/css/review.css">
 <div class="reviews">
-  <div class="stitle"><a href="" target="_blank">view more photos</a>Mixbridal Real Weddings</div>
+  <div class="stitle"><a href="http://www.mixbridal.com/real-weddings.html" target="_blank">view more photos</a>Mixbridal Real Weddings</div>
   <div class="larrow"><a href="javascript:void(0);" onclick="reviewLarrow()"></a></div>
   <div class="listbox">
     <div class="slider">
@@ -156,7 +156,7 @@ function reviewLarrow() {
 function floatGrayBox() {
 	jQuery('body').append('<div class="floatgraybackground"></div>');
 	jQuery('body').append('<div class="floatgraybox"></div>');
-	jQuery('.floatgraybox').append('<div class="messagebox"><div class="messagebox_top_bg"></div><div class="messageclosebox"><a class="messageclosebtn" href="javascript:void(0);" onclick="closeFloatGrayBox()"><img src="media/nmred/image/messagebox_close_btn.png" /></a></div></div>');
+	jQuery('.floatgraybox').append('<div class="messagebox"><div class="messagebox_top_bg"></div><div class="messageclosebox"><a class="messageclosebtn" href="javascript:void(0);" onclick="closeFloatGrayBox()"><img src="/media/nmred/image/messagebox_close_btn.png" /></a></div></div>');
 
 	jQuery('.floatgraybackground').height(jQuery('body').height()).fadeIn();
 }
@@ -171,15 +171,15 @@ function closeFloatGrayBox() {
 }
 </script>
 <?php } else { ?>
-<link rel="stylesheet" href="media/nmred/css/review_mobile.css">
-<script type="text/javascript" src="media/nmred/js/mobile_slide.js"></script>
-<script type="text/javascript" src="media/nmred/js/review_mobile.js"></script>
+<link rel="stylesheet" href="/media/nmred/css/review_mobile.css">
+<script type="text/javascript" src="/media/nmred/js/mobile_slide.js"></script>
+<script type="text/javascript" src="/media/nmred/js/review_mobile.js"></script>
 <style>
 </style>
 <div class="real-weddings1 carousel-wrapper reviews">
     <div class="title_mobile">REAL WEDDINGS...</div>
     <div class="stitle carousel-title style-01">
-        <a class="carousel-link" href="">View more photos</a>
+        <a class="carousel-link" href="http://www.mixbridal.com/real-weddings.html">View more photos</a>
                 <h1></h1>
     </div>
     <div class="real-weddings-photos listbox row">
