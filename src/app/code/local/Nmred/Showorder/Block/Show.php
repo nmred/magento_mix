@@ -17,7 +17,7 @@ class Nmred_Showorder_Block_Show extends Mage_Core_Block_Template
     }
 
 	public function getShowData() {
-		$result = Mage_Curl::run('http://show.mixbridal.com/showorder/show');
+		$result = Mage_Curl::run('http://show.mixbridal.com/showorder/show', 'GET', 5);
 		$result = json_decode($result, true);
 		$mobile = Mage_Util::isMobile();
 		$num = $mobile ? 2 : 5;
