@@ -22,6 +22,9 @@ class Nmred_Showorder_IndexController extends Mage_Core_Controller_Front_Action
 		$products = $data['data']['products'];
 		$productInfos = array();
 		foreach ($products as $productId) {
+			if (trim($productId) && !$productId) {
+				continue;	
+			}
 			try {
 				$productInfos[] = $this->getProduct($productId);	
 			} catch(Exception $e) {
