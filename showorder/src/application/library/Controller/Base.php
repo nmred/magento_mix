@@ -173,7 +173,7 @@ abstract class Controller_Base extends Yaf_Controller_Abstract
         return $url;
     }
 
-    // }}o}
+    // }}}
 	// }}}
 	// {{{ public function checkLogin()
 
@@ -192,7 +192,7 @@ abstract class Controller_Base extends Yaf_Controller_Abstract
 		if ($passToken == $token) {
 			return true;
 		} else {
-			$this->redirect('http://show.mixbridal.com');	
+			$this->redirect('http://show.mixbridal.com/index/login');	
 		}
 	}
 

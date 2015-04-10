@@ -95,8 +95,9 @@ class IndexController extends Controller_Base
 			$session = \Yaf_Session::getInstance();
 			$session->set("usertoken", md5($name . time()) . time());
 			$session->set("name", $name);
+			$this->redirect('http://show.mixbridal.com');	
 		} else {
-			$this->forward('login');
+			$this->redirect('http://show.mixbridal.com/index/login');	
 		}
 	}
 
