@@ -19,7 +19,7 @@
 .real-weddings1.carousel-wrapper { width: 100%; }
 
 .title_mobile { border-top: 1px solid #555555; border-bottom: 1px dashed #555555; font-size: 25px; padding: 10px 0; text-align: center; lor: #000;
-  font-family: 'NovecentowideBookRegular'; color: #000000; text-transform: uppercase; overflow: hidden; font-weight: bold; }
+  font-family: 'NovecentowideBookRegular'; color: #000000; text-transform: uppercase; overflow: hidden;}
 
 /* jCarousel */
 .carousel-wrapper .carousel-title.style-01 h1, .carousel-wrapper .carousel-title.style-02 h1 { font-size:150%; font-weight:lighter; font-style:normal; text-transform:normal; }
