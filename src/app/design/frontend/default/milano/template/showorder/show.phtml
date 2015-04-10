@@ -1,0 +1,225 @@
+<?php $data = $this->getShowData();?>
+<?php $mobile = Mage_Util::isMobile(); if (!$mobile) { ?>
+<link rel="stylesheet" href="media/nmred/css/review.css">
+<div class="reviews">
+  <div class="stitle"><a href="" target="_blank">view more photos</a>Mixbridal Real Weddings</div>
+  <div class="larrow"><a href="javascript:void(0);" onclick="reviewLarrow()"></a></div>
+  <div class="listbox">
+    <div class="slider">
+	<?php foreach ($data as $key => $value) { ?>
+      <div class="perslider">
+		<div class="persliderbox">
+			<?php foreach($value as $k => $val) { ?>
+			<div class="perbox">
+				<a href="javascript:void(0);" class="thumb" data-lightbox="image-1" rel="<?php echo $val['id']?>" onclick="displayReview(this);"><img src="<?php echo $val['img'];?>"></a>
+				<div class="featured"><?php echo $val['title'];?></div>
+			</div>
+			<?php } ?>
+		</div>
+	  </div>
+	<?php } ?>
+    </div>
+  </div>
+  <div class="rarrow"><a href="javascript:void(0);" onclick="reviewRarrow();"></a></div>
+</div>
+<script>
+var CONFIG_REVOLUTION = {};
+
+function displayReview(obj) {
+	jQuery.ajax({
+		url: '/showorder/index/review?id=' + jQuery(obj).attr('rel'),
+		type: 'post',
+		dataType: 'json',
+		success: function(result) {
+			data = result.data
+			console.info(333)
+			floatGrayBox();
+			var contentheight = 500;
+			var productheight = 160;
+			if(jQuery(window).height() < contentheight){
+				contentheight = jQuery(window).height() - 70;
+			}
+			var boxheight = contentheight - productheight;
+			var imgboxheight = boxheight - 30;
+			var htmlstr = '';
+			htmlstr += '<div class="reviewviewbox">';
+			htmlstr += '<div class="lbox"><div class="imglist">';
+			if(data['images'].length > 1){
+				htmlstr += '<div class="larrow"><a href="javascript:void(0);"></a></div>';
+			}else{
+				htmlstr += '<div class="larrow"></div>';
+			}
+			htmlstr += '<div class="imgbox"><div class="sliderbox">';
+			for(var i = 0; i < data['images'].length; i++) {
+				htmlstr += '<div class="perimg"><img src="' + data['images'][i]['url'] + '" /></div>';
+			}
+			htmlstr += '</div></div>';
+			if(data['images'].length > 1){
+				htmlstr += '<div class="rarrow"><a href="javascript:void(0);"></a></div>';
+			}else{
+				htmlstr += '<div class="larrow"></div>';
+			}
+			htmlstr += '</div></div>';
+			htmlstr += '<div class="rbox"><div class="title">' + data['title'] + '</div><div class="content">' + data['comment'] + '</div></div>';
+			htmlstr += '<div class="bbox"><div class="title">The dress(es) purchased:</div><div class="productlist">';
+			for(var i = 0; i < data['product_infos'].length; i++) {
+				htmlstr += '<a href="' + data['product_infos'][i]['url'] + '"><img src="' + data['product_infos'][i]['img'] + '" /></a>';
+			}
+			htmlstr += '</div></div>';
+			htmlstr += '</div>';
+
+			jQuery('.floatgraybox .messagebox').addClass('reviewview');
+			jQuery('.floatgraybox .messagebox').append('<div class="messagebox_body_container"><div class="messagebox_body"></div></div><div class="messagebox_lower_left"></div><div class="messagebox_lower_right"></div>');
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body').html(htmlstr);
+
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body').height(contentheight);
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .lbox').height(boxheight);
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .lbox .imglist').height(boxheight);
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .lbox .imglist .larrow').height(boxheight);
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .lbox .imglist .rarrow').height(boxheight);
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .lbox .imglist .larrow a').css('margin-top', (boxheight - 24) / 2);
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .lbox .imglist .rarrow a').css('margin-top', (boxheight - 24) / 2);
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .lbox .imglist .imgbox').height(imgboxheight);
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .lbox .imglist .sliderbox').height(imgboxheight);
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .lbox .imglist .sliderbox .perimg').height(imgboxheight);
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .lbox .imglist .sliderbox .perimg img').height(imgboxheight);
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .rbox').height(boxheight - 20);
+
+
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox .perimg img').each(function(){
+			jQuery(this).load(function(){
+				if(jQuery(this).width() > jQuery(this).parent('.perimg').width()){
+					jQuery(this).css('margin-left', -((jQuery(this).width() - jQuery(this).parent('.perimg').width()) / 2));
+				}else{
+					jQuery(this).css('margin-left', ((jQuery(this).parent('.perimg').width() - jQuery(this).width()) / 2));
+				}
+			});
+		});
+
+			var body_height = jQuery('.floatgraybox .messagebox.reviewview .messagebox_body').height();
+			var mtop = (jQuery(window).height() - body_height) / 2;
+			if (mtop <= 0) {
+				mtop = 10;
+			} else if (mtop >= 230) {
+				mtop = 230;
+			}
+			mtop -= 30;
+			jQuery('.floatgraybox .messagebox').css({'margin-top': jQuery(document).scrollTop() + mtop + 'px', 'margin-left': (jQuery('body').width() - 800) / 2 + 'px'});
+			jQuery(window).resize(function(){
+				jQuery('.floatgraybox .messagebox').css({'margin-top': jQuery(document).scrollTop() + mtop + 'px'});
+			});
+			jQuery(window).scroll(function(){
+				jQuery('.floatgraybox .messagebox').css({'margin-top': jQuery(document).scrollTop() + mtop + 'px'});
+			});
+
+			jQuery('.floatgraybox').height(jQuery('body').height()).fadeIn();
+
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .rbox .content').height(boxheight - jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .rbox .title').height() - 20);
+		}
+	});
+}
+
+jQuery(document).ready(function(){
+	jQuery(document).on('click', '.floatgraybox .messagebox.reviewview .messagebox_body .imglist .rarrow a', function(){
+		jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox').animate({
+			marginLeft: -500,
+		}, 800, function(){
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox .perimg:first').appendTo('.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox');
+			jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox').css('margin-left', 0);
+		});
+	});
+
+	jQuery(document).on('click', '.floatgraybox .messagebox.reviewview .messagebox_body .imglist .larrow a', function(){
+		jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox .perimg:last').prependTo('.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox');
+		jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox').css('margin-left', -500);
+		jQuery('.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox').animate({
+			marginLeft: 0,
+		}, 800);
+	});
+})
+function reviewRarrow() {
+	jQuery('.reviews .listbox .slider').animate({
+		marginLeft: -956,
+	}, 800, function(){
+		jQuery('.reviews .perslider:first').appendTo('.reviews .listbox .slider');
+		jQuery('.reviews .listbox .slider').css('margin-left', 0);
+	});
+}
+
+function reviewLarrow() {
+	jQuery('.reviews .perslider:last').prependTo('.reviews .listbox .slider');
+	jQuery('.reviews .listbox .slider').css('margin-left', -956);
+	jQuery('.reviews .listbox .slider').animate({
+		marginLeft: 0,
+	}, 800);
+}
+function floatGrayBox() {
+	jQuery('body').append('<div class="floatgraybackground"></div>');
+	jQuery('body').append('<div class="floatgraybox"></div>');
+	jQuery('.floatgraybox').append('<div class="messagebox"><div class="messagebox_top_bg"></div><div class="messageclosebox"><a class="messageclosebtn" href="javascript:void(0);" onclick="closeFloatGrayBox()"><img src="media/nmred/image/messagebox_close_btn.png" /></a></div></div>');
+
+	jQuery('.floatgraybackground').height(jQuery('body').height()).fadeIn();
+}
+
+function closeFloatGrayBox() {
+	jQuery('.floatgraybox').fadeOut(function(){
+		jQuery('.floatgraybackground').fadeOut(function(){
+			jQuery('.floatgraybox').remove();
+			jQuery('.floatgraybackground').remove();
+		});
+	});
+}
+</script>
+<?php } else { ?>
+<link rel="stylesheet" href="media/nmred/css/review_mobile.css">
+<script type="text/javascript" src="media/nmred/js/mobile_slide.js"></script>
+<script type="text/javascript" src="media/nmred/js/review_mobile.js"></script>
+<style>
+</style>
+<div class="real-weddings1 carousel-wrapper reviews">
+    <div class="title_mobile">FEATURED ON...</div>
+    <div class="stitle carousel-title style-01">
+        <a class="carousel-link" href="">View more photos</a>
+                <h1>Real Weddings</h1>
+    </div>
+    <div class="real-weddings-photos listbox row">
+        <ul class="real-weddings-content">
+            <!--<div class="perslider"><div class="persliderbox">-->
+			<?php foreach ($data as $key => $value) { ?>
+					<?php foreach($value as $k => $val) { ?>
+                    <li class="item">
+						<div class="perbox products-box">
+							<a href="javascript:void(0);" class="thumb" data-lightbox="image-1" rel="<?php echo $val['id']?>"><img src="<?php echo $val['img'];?>"></a>
+						<div class="featured"><?php echo $val['title'];?></div>
+						</div>
+					</li>
+					<?php } ?>
+			<?php } ?>
+            <!--</div></div>-->
+        </ul>
+        <div class="nav-btn prev"><a href="javascript:void(0);" class="view-prev"></a></div>
+        <div class="nav-btn next" ><a href="javascript:void(0);" class="view-next"></a></div>
+    </div>
+</div>
+<script type="text/javascript">
+var CONFIG_REVOLUTION = {};
+jQuery(document).ready(function(){
+	console.info("debug");
+    jQuery('.real-weddings-photos').newMobileSlide({
+      container: '.real-weddings1',
+      displaySlide: '.real-weddings-photos',
+      contentSlide: '.real-weddings-content',
+      loop: true,
+      play: false,
+      visibleIntChange: true,
+      imgWidthChange: false,
+      imgWidth: 180,
+      margin: 15,
+      steps: 3,
+      stepsSlide: true,
+      prev: '.view-prev',
+      next: '.view-next'
+    });
+});
+</script>
+<?php } ?>

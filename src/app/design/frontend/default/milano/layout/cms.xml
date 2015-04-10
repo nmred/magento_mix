@@ -35,6 +35,7 @@ Default layout, loads most of the pages
 				<action method="unsetData"><key>cache_lifetime</key></action>
 			</block>
 			<block type="ThemeConfig/brands" name="catalog.product.brands" alias="product_brands" template="catalog/product/brands.phtml" />
+			<block type="showorder/show" name="showorder.show" template="showorder/show.phtml"/>
 			<block type="blog/homeblog" name="home.blog" template="blog/home_blog.phtml">
 				<block type="cms/block" name="home.blog.left" as="homeBlogLeft">
 					<action method="setBlockId"><block_id>home_blog_left</block_id></action>

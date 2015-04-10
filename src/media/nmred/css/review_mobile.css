@@ -1,0 +1,92 @@
+.real-weddings1.carousel-wrapper { margin: 0; }
+.real-weddings1.carousel-wrapper .real-weddings-content { position: relative; }
+.real-weddings1.carousel-wrapper .listbox { width: 100%; height: 180px; margin: 0; float: left; overflow: hidden; }
+.real-weddings1.carousel-wrapper .listbox .slider { width: 16000px; height: 120px; float: left; }
+.real-weddings1.carousel-wrapper .listbox .slider .perslider { width: 100%; height: 120px; float: left; overflow: hidden; }
+.real-weddings1.carousel-wrapper .listbox .item { width: 1000px; height: 120px; float: left; }
+.real-weddings1.carousel-wrapper .listbox .item .perbox { margin: 0 18px 0 0; float: left; }
+.real-weddings1.carousel-wrapper .listbox .item .perbox a.thumb { height: 120px; float: left; overflow: hidden; }
+.real-weddings1.carousel-wrapper .listbox .item .perbox a.thumb img { height: 120px; float: left; }
+.real-weddings1.carousel-wrapper .listbox .item .perbox .featured {margin: 8px 0 0; float: left; font-size: 80%; color: #555555;}
+.real-weddings1.carousel-wrapper .featured { margin: 8px 0 0; float: left; font-size: 80%; color: #555555; }
+.real-weddings1 .nav-btn { display: block; width: auto; float: left; position: relative; width: 18px; height: 18px; top: -65px; }
+.real-weddings1 .nav-btn a { width: 18px; height: 18px; display: block; background: url(../image/arrow-round-nav.png); background-size: 36px 18px; }
+.real-weddings1 .nav-btn.prev { left: 5px; }
+.real-weddings1 .nav-btn.prev a { background-position: left top; }
+.real-weddings1 .nav-btn.next { left: 90%; }
+.real-weddings1 .nav-btn.next a { background-position: right top; }
+
+.real-weddings1.carousel-wrapper { width: 100%; }
+
+.title_mobile { border-top: 1px solid #555555; border-bottom: 1px dashed #555555; font-size: 120%; padding: 10px 0; text-align: center; font-family: Open Sans; color: #000000; text-transform: uppercase; overflow: hidden; font-weight: bold; }
+
+/* jCarousel */
+.carousel-wrapper .carousel-title.style-01 h1, .carousel-wrapper .carousel-title.style-02 h1 { font-size:150%; font-weight:lighter; font-style:normal; text-transform:normal; }
+.carousel-wrapper { overflow: hidden; }
+
+.carousel-wrapper .carousel-title.style-01 { width: 100%; overflow: hidden; margin: 0; padding: 10px 0; display: block; }
+.carousel-wrapper .carousel-title.style-01 h1 { overflow: hidden; padding-left: 0; font-size: 120%; font-family: Open Sans; font-weight: normal; font-style: normal; text-transform: uppercase; margin-top: 0; display: inline-block; line-height: 210%; }
+.carousel-wrapper .carousel-title.style-01 a { display: inline-block; margin: 0; float: right; padding: 7px; text-align: center; font-size: 80%; text-transform: uppercase; color: #000000; background-color: #FEFEFE;; -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; border: 1px solid #E7E7E7; }
+.carousel-wrapper .carousel-title.style-01 a:hover { color: #FFFFFF; background-color: #C8478D; }
+
+.carousel-wrapper .carousel-title.style-02 h1 { float: left; line-height: 41px; font-weight: 300; border-bottom: 2px solid #FFFFFF; color:#000000; }
+.carousel-wrapper .carousel-title.style-02 { position: relative; height: 41px; border-bottom: 2px solid #FFFFFF; }
+
+.carousel-wrapper .carousel { position: relative; overflow: hidden; height: 372px; }
+.carousel-wrapper .carousel ul { width: 20000em; position: absolute; list-style: none; margin: 0; padding: 0; }
+.carousel-wrapper .carousel li { float: left; margin-top: 20px; width: 220px; margin-left: 20px; }
+.carousel-control-prev, .carousel-control-next { background-color:#999999; }
+.carousel-control-prev:hover, .carousel-control-next:hover, .carousel-link:hover { background-color:#A23F85; color: #FFFFFF; }
+.style-01 .carousel-control-prev, .style-01 .carousel-control-next { background-image: url("../image/pix.png") ; display: inline-block; width: 41px; height: 31px; float:right; }
+.style-01 .carousel-control-prev { background-position: 16px -60px; }
+.style-01 .carousel-control-next { background-position: 18px -93px; margin-left: 1px; }
+.style-01 .carousel-control-prev.inactive{ background-position: 16px -60px; background-color: #E5E5E5; cursor: default; }
+.style-01 .carousel-control-next.inactive { background-position: 18px -93px; background-color: #E5E5E5; cursor: default; }
+
+.floatgraybox .messagebox.reviewimagefloatingbox { width: 100%; font-size: 12px; }
+.floatgraybox .messagebox.reviewimagefloatingbox #reviewimagelist { float: left; background-color: #FFFFFF; }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body { background: #FFFFFF; border: none; text-align: left; }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .review-content { margin: 5px 1.5% 20px 1.5%; width: auto; float: left; width: 35%; }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .review-content-text { padding: 10px 25px; font-size: 15px; font-weight: lighter; font-family: Open Sans; color: #000000; }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .review-content:before { content: '\201C'; font-size: 40px; float: left; font-family: Georgia; color: #666666; }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .review-content:after { content: '\201D'; font-size: 40px; float: right; font-family: Georgia; color: #666666; }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .review-prologue { color: #000000; font-size: 120%; font-family: "Open Sans"; margin: 20px 1.5% 20px 1.5%; width: 100%; float: left; width: 35%; font-weight: normal; }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body span.review-username { color: #565656; font-size: 160%; font-weight: bolder; font-family: "Bilbo Swash Caps"; display: block; }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body span.review-date { }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .review-control, .floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .review-control-real-weddings { width: 97%; float: left; display: block; margin: 5px 1.5% 20px 1.5%; text-align: center; }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .review-control a, .floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .review-control-real-weddings a { font-family: "Open Sans"; font-weight: normal; font-style: normal; display: inline-block; margin: 0 0 0 15px; padding: 3px 4px; text-align: center; font-size: 75%; text-transform: uppercase; color: #973777; background-color: #FFFFFF; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; border: 1px solid #973777;}
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .review-control a.view-prev, .floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .review-control-real-weddings a.view-prev { margin: 0 15px 0 0;}
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .review-control .review-count, .floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .review-control-real-weddings .review-count { display: inline-block; font-size: 110%; font-weight: bold; color: #973777; }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .review-control a.close { display: inline-block; margin: 20px 0 0 0; width: 40%; padding: 3%; text-align: center; font-size: 120%; text-transform: uppercase; color: #C8478D; background-color: #F8F8F8; -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; border: 1px solid #E5E5E5; }
+
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .bbox { width: 97%; margin: 0 1.5% 20px 1.5%; float: left; }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .bbox .title { width: 100%; color: #D2A08A; font-size: 13px; font-family: "Open Sans"; border-bottom: 1px solid #F1E7DB; padding: 0 0 6px 0; text-transform: uppercase; }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .bbox .productlist { padding: 10px 0; }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .bbox .productlist a { margin: 0 10px 0 0; float: left; }
+.floatgraybox .messagebox.reviewimagefloatingbox .messagebox_body .bbox .productlist a img { height: 120px; }
+
+.review-pic-slider-box { width: 62%; box-sizing:border-box; -webkit-box-sizing:border-box; position: relative; float: left; }
+.review-pic-slider-box .review-pic-slider { width: 100%; display: inline-block; max-width:100%; margin:0; position:relative; overflow:hidden; margin-bottom:9px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+.review-pic-slider-content { position:relative; width:1200%; padding-left:0; }
+.review-pic-slider-content li { width: 8.3333%; display:inline-block; height:auto; float:left; box-sizing:border-box; text-align: center; }
+.review-slider-bg { text-align:center; display:block; margin-bottom: 10px; }
+.review-slider-bg span.bg { display:inline-block; width:8px; height:8px; margin:0 4px; background:url(../image/slide-trigger-bg.png) 0 -25px; background-size:8px 33px; }
+.review-slider-bg .bg.current { background-position:0 0; }
+
+#zoom #zoomClose { width: 28px; height: 28px; line-height: 28px; }
+#zoomTitle { height: 32px; font-size: 160%; }
+
+
+#zoomContainer, #colorGuideContainer { display:none; position: absolute; z-index:99; left:0; top:0; width:100%; height:auto; background-color:#000; overflow-x: hidden; overflow-y: auto; }
+#zoomContainerOrderDress { display:none; position: absolute; z-index:98; left:0; top:0; width:100%; height:auto; background-color:#000; overflow-x: hidden; overflow-y: auto; }
+#colorGuideContainer { height: 100%; background-color: #FFFFFF; }
+#zoom, #color, #zoomOrderDress { display:block; text-align:center; overflow:visible; width:100%; height:100%; }
+#zoom #zoomStage, #zoomOrderDress #zoomStageOrderDress { position: relative; margin:0 auto; width:100%; height:100%; overflow:hidden; display: none; }
+#zoom #zoomClose, #colorGuide #colorGuideClose, #zoomOrderDress #zoomCloseOrderDress { display: block; width:28px; height:28px; box-sizing:border-box; -webkit-box-sizing:border-box; text-align:center; font-size:20px; line-height:28px; background-color: rgba(0, 0, 0, 0.6); color:#fff; position:fixed; z-index:999; top:5px; right:5px; }
+#zoom #zoomClose:hover, #colorGuide #colorGuideClose:hover, #zoomOrderDress #zoomCloseOrderDress:hover { text-decoration: none; color:#fff; }
+#zoom #zoomClose.inactive, #zoomOrderDress #zoomCloseOrderDress.inactive { background-color: #CCCCCC; color: #DDDDDD; }
+#zoomStage img, #zoomStageOrderDress img { display:blockheight:auto; }
+#zoomTitle, #colorGuideTitle, #zoomTitleOrderDress { height: 40px; font-size: 200%; font-family: Open Sans; text-align: left; padding: 5px 0 0 10px; color: black; font-weight: lighter; background-color: #F3F3F3; text-transform: uppercase; display: none; }
+#zoomContent, #colorGuideContent, #zoomContentOrderDress { height: 100%; background-color: #FFFFFF; display: none; }
+#colorGuideContent { display: block; }
+#colorGuideTitle { display: block; }

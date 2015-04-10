@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Nmred_Showorder>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Nmred_Showorder>
+    </modules>
+</config>

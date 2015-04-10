@@ -1,0 +1,250 @@
+.reviews { width: 1002px; border-top: 1px dashed #555555; margin: 20px 0 20px 0; float: left; }
+	.reviews .title { width: 1002px; color: #000000; font-size: 14px; text-align: center; border-bottom: 1px dashed #555555; padding: 10px 0 10px 0; float: left; }
+	.reviews .stitle { width: 999px; font-size: 12px; font-family: "Georgia"; margin: 10px 0 0 0; padding: 0 0 0 3px; float: left; }
+	.reviews .stitle a { color: #C2437A; font-size: 12px; font-family: "Verdana"; margin: 0 3px 0 0; float: right; }
+	.reviews .stitle span { color: #C2437A; margin: 0 4px 0 2px; float: right; }
+
+	.reviews .larrow, .reviews .rarrow { width: 23px; float: left; }
+	.reviews .larrow a, .reviews .rarrow a { width: 13px; height: 24px; background: url(../image/listarrow.jpg) no-repeat; float: left; }
+	.reviews .larrow a { margin: 70px 0 0 3px; }
+	.reviews .larrow a:hover { background-position: left bottom; }
+	.reviews .rarrow a { background-position: right top; margin: 70px 0 0 7px; }
+	.reviews .rarrow a:hover { background-position: right bottom; }
+	.reviews .listbox { width: 956px; height: 180px; margin: 15px 0 0 0; float: left; overflow: hidden; }
+	.reviews .listbox .slider { width: 36000px; height: 180px; float: left; }
+	.reviews .listbox .slider .perslider { width: 956px; height: 180px; float: left; overflow: hidden; }
+	.reviews .listbox .slider .perslider .persliderbox { width: 1000px; height: 180px; float: left; }
+	.reviews .listbox .slider .perslider .persliderbox .perbox { width: 180px; margin: 0 14px 0 0; float: left; }
+	.reviews .listbox .slider .perslider .persliderbox .perbox a.thumb { width: 180px; height: 130px; float: left; overflow: hidden; }
+	.reviews .listbox .slider .perslider .persliderbox .perbox a.thumb img { height: 130px; float: left; }
+	.reviews .listbox .slider .perslider .persliderbox .perbox .featured { margin: 8px 0 0; float: left; font-size: 80%; color: #555555;}
+
+	.floatgraybox .messagebox.reviewupload { width: 514px; background-color: transparent; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_top_bg { width: 488px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body_container { width: 500px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_lower_left { width: 257px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_lower_right { width: 257px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body { background: #FFFFFF; }
+
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox { width: 500px; height: 300px; float; left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .title { width: 500px; color: #C2437A; font-size: 18px; text-align: center; margin: 5px 0 10px 0; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox { width: 470px; color: #555555; margin: 0 0 10px 29px; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .left { margin: 6px 0 0 0; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .errmsg { font-size: 11px; margin: 7px 0 0 8px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .right { float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .right input { color: #555555; font-family: "Verdana"; border-top: 0; border-right: 0; border-bottom: 1px solid #888888; border-left: 0; font-size: 12px; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .right input[name='cc_email'] { width: 160px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .right #file_upload { margin: 5px 0 0 5px; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .right .uploading { color: #00AA00; font-size: 11px; margin: 8px 0 0 10px; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .right .uploadedimg { display: none; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox .right #file_upload-queue { display: none; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox.nocontent { margin-bottom: 5px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .rowbox textarea { width: 420px; height: 85px; color: #888888; font-size: 10px; font-family: "Verdana"; border: 1px solid #888888; padding: 5px 10px; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .successmsg { width: 333px; height: 18px; color: #00AA00; font-size: 11px; margin: -5px 0 0 30px; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox a.submitbutton { width: 69px; height: 16px; background: url(../image/activity/color-guide/customsubmit.jpg) no-repeat; float: left; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox a.submitbutton:hover { background-position: left -16px; }
+	.floatgraybox .messagebox.reviewupload .messagebox_body .reviewuploadbox .errmsg { color: #FF6666; float: left; }
+
+	.floatgraybox .messagebox.reviewview { width: 814px; background-color: transparent; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_top_bg { width: 788px; }
+	.floatgraybox .messagebox.reviewview .messagebox_body_container { width: 800px; }
+	.floatgraybox .messagebox.reviewview .messagebox_lower_left { width: 407px; }
+	.floatgraybox .messagebox.reviewview .messagebox_lower_right { width: 407px; }
+	.floatgraybox .messagebox.reviewview .messagebox_body { background: #FFFFFF; }
+
+	.floatgraybox .messagebox.reviewview .messagebox_body .lbox { width: 600px; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist { width: 600px; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .larrow, .floatgraybox .messagebox.reviewview .messagebox_body .imglist .rarrow { width: 50px; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .larrow a, .floatgraybox .messagebox.reviewview .messagebox_body .imglist .rarrow a { width: 13px; height: 24px; background: url(../image/listarrow.jpg) no-repeat; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .larrow a { margin: 0 0 0 19px; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .larrow a:hover { background-position: left bottom; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .rarrow a { background-position: right top; margin: 0px 0 0 18px; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .rarrow a:hover { background-position: right bottom; }
+
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox { width: 500px; margin: 15px 0 0 0; float: left; overflow: hidden; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox { width: 36000px; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox .perimg { width: 500px; float: left; overflow: hidden; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .imglist .imgbox .sliderbox .perimg img { float: left; }
+
+	.floatgraybox .messagebox.reviewview .messagebox_body .rbox { width: 195px; color: #828282; font-size: 12px; font-family: "Muli"; padding: 20px 0 0 5px; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .rbox .title { width: 185px; font-size: 16px; font-family: "Verdana"; line-height: 22px; text-transform: uppercase; float: left; overflow-y: hidden; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .rbox .content { width: 175px; line-height: 18px; margin: 10px 0 0 0; padding: 0 20px 0 0; float: left; overflow-y: auto; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .rbox .content a { color: #D2A08A; font-size: 12px; font-family: "Muli"; word-break: break-all; }
+
+	.floatgraybox .messagebox.reviewview .messagebox_body .bbox { width: 780px; height: 160px; margin: 0 0 0 10px; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .bbox .title { width: 780px; height: 13px; color: #D2A08A; font-size: 13px; font-family: "Muli"; border-bottom: 1px solid #F1E7DB; padding: 0 0 6px 0; float: left; overflow-y: hidden; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .bbox .productlist { width: 780px; height: 120px; padding: 10px 0 10px 0; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .bbox .productlist a { margin: 0 10px 0 0; float: left; }
+	.floatgraybox .messagebox.reviewview .messagebox_body .bbox .productlist a img { height: 120px; float: left; }
+
+.floatmessagebox { display: none; background: url(../image/public/floatmsgbackground.png) no-repeat right bottom; padding: 8px 23px 15px 0; filter: alpha(opacity=100); -moz-opacity: 1; -khtml-opacity: 1; opacity: 1; z-index: 36; position: absolute; }
+.floatmessage { display: none; color: #666666; font-size: 11px; font-family: Verdana; padding: 8px 8px 8px 8px; z-index: 38; position: absolute; }
+
+
+
+.floatgraybox .messagebox .messagectbox { width: 100%; background-color: #FFFFFF; }
+
+.floatgraybox .messagebox .changecolor.confirmbox { height: 380px; color: #000000; background: #FFFFFF; position: static; }
+.floatgraybox .messagebox .changecolor.confirmbox .cbtitle { color: #000000; }
+
+.floatgraybackground { width: 100%; display: none; background-color: #000000; filter: alpha(opacity=40); -moz-opacity: 0.4; -khtml-opacity: 0.4; opacity: 0.4; top: 0; left: 0; z-index: 20; position: absolute; }
+.floatgraybox { width: 100%; display: none; top: 0; left: 0; z-index: 24; position: absolute; }
+.floatgraybox .messagebox { float: left; }
+.floatgraybox .messagebox .messagebox_top_bg { float: left; display: inline-block; padding: 0; margin: 0; height: 26px; background: url(../image/messagebox_top_bg.png) no-repeat; }
+.floatgraybox .messagebox .messageclosebox { float: left; display: inline-block; padding: 0; margin: 0; width: 26px; height: 26px; }
+.floatgraybox .messagebox .messagebox_body_container { float: left; display: inline-block; padding: 0; margin: 0 12px 0 0; border-left: 1px solid #666666; border-right: 1px solid #666666; background-color: transparent; }
+.floatgraybox .messagebox .messagebox_body { background-color: #FFFFFF; }
+.floatgraybox .messagebox .messagebox_lower_left { float: left; display: inline-block; padding: 0; margin: 0; height: 4px; background: url(../image/messagebox_lower_left.png) no-repeat left; }
+.floatgraybox .messagebox .messagebox_lower_right { float: left; display: inline-block; padding: 0; margin: 0; height: 4px; background: url(../image/messagebox_lower_right.png) no-repeat right; }
+
+.floatgraybox .messagebox a { color: #AF347A; }
+
+.floatgraybox .messagebox.referfriends { width: 614px; background-color: transparent; float: left; margin-top: 230px; }
+.floatgraybox .messagebox.referfriends .messagebox_top_bg { width: 588px; }
+.floatgraybox .messagebox.referfriends .messagebox_body_container { width: 600px; }
+.floatgraybox .messagebox.referfriends .messagebox_lower_left { width: 307px; }
+.floatgraybox .messagebox.referfriends .messagebox_lower_right { width: 307px; }
+.floatgraybox .messagebox.referfriends .messagebox_body { background: #FFFFFF; height: 460px; }
+.floatgraybox .messagebox.referfriends .confirmbox { width: 600px; background-color: #FFFFFF; /*background: url(../image/product/gray85.png) repeat;*/ position: absolute; }
+.floatgraybox .messagebox.referfriends .confirmbox .cbtitle { width: 100%; text-align: center; margin: 30px 0 0 0; float: left; font-size: 14px; font-weight: normal; }
+.floatgraybox .messagebox.referfriends .confirmbox .cbcontent { width: 100%; margin: 0; padding: 30px; float: left; }
+.floatgraybox .messagebox.referfriends .confirmbox .cbcontent td { font-size: 12px; line-height: 140%; padding: 8px 0 8px 0; }
+.floatgraybox .messagebox.referfriends .confirmbox .cbsubmit { width: 100%; margin: 0; float: left; text-align: center; }
+.floatgraybox .messagebox.referfriends .confirmbox .cbsubmit a { height: 22px; color: #000000; font-weight: bold; background: url(../image/product/confirmmeasurebtn.jpg) no-repeat; margin: 0; padding: 6px 20px; }
+.floatgraybox .messagebox.referfriends .confirmbox .cbsubmit a:hover { text-decoration: none; background-position: 0 -28px; }
+
+.floatgraybox .messagebox.referfriends .referfriendsbox { width: 100%; font-family: Verdana, Arial, Helvetica, sans-serif; text-align: center; }
+.floatgraybox .messagebox.referfriends .referfriendsbox .title { font-size: 24px; color: #C63F7A; font-family: Georgia, serif; padding-top: 25px; }
+.floatgraybox .messagebox.referfriends .referfriendsbox .subtitle { font-size: 14px; color: #666666; font-style: italic; padding: 7px 0 20px 0; }
+.floatgraybox .messagebox.referfriends .referfriendsbox .steps { font-size: 12px; color: #555555; font-weight: bold; display: inline-block; padding-top: 21px; width: 160px; text-align: right; vertical-align: top; }
+.floatgraybox .messagebox.referfriends .referfriendsbox .steps_content { display: inline-block; padding-top: 21px; width: 423px; padding-left: 17px; text-align: left; font-size: 14px; }
+.floatgraybox .messagebox.referfriends .referfriendsbox .steps_content td { font-size: 14px; color: #555555; padding: 3px 0; }
+.floatgraybox .messagebox.referfriends .referfriendsbox .steps_content input { font-size: 12px; height: 25px; padding: 0 10px; margin: 0 0 0 5px; width: 220px; color: #555555; font-style: italic; }
+.floatgraybox .messagebox.referfriends .referfriendsbox .submitbtn { margin-top: 22px; }
+.floatgraybox .messagebox.referfriends .referfriendsbox .submitbtn a { font-size: 16px; color: #FFFFFF; background-color: #C63F7A; padding: 10px 25px; letter-spacing: 1px; }
+.floatgraybox .messagebox.referfriends .referfriendsbox .submitbtn a:hover { text-decoration: none; background-color: #E04C93; }
+.floatgraybox .messagebox.referfriends .referfriendsbox .text { font-size: 14px; color: #555555; padding-top: 25px; }
+.floatgraybox .messagebox.referfriends .referfriendsbox .text a { font-size: 14px; }
+.floatgraybox .messagebox.referfriends .referfriendsbox span.error { letter-spacing: none; padding: 3px 0 0 8px; font-size: 11px; display: block; text-align: left; }
+.floatgraybox .messagebox.referfriends .referfriendsbox input.error { border: 1px solid #FF6666; }
+.floatgraybox .messagebox.referfriends .referfriendsbox .facebookbox span.error { width: 380px; }
+
+
+.floatgraybox .messagebox.signupgetusd10 { width: 614px; background-color: transparent; float: left; margin-top: 230px; }
+.floatgraybox .messagebox.signupgetusd10 .messagebox_top_bg { width: 588px; }
+.floatgraybox .messagebox.signupgetusd10 .messagebox_body_container { width: 600px; }
+.floatgraybox .messagebox.signupgetusd10 .messagebox_lower_left { width: 307px; }
+.floatgraybox .messagebox.signupgetusd10 .messagebox_lower_right { width: 307px; }
+.floatgraybox .messagebox.signupgetusd10 .messagebox_body { background: #FFFFFF; height: 430px; }
+.floatgraybox .messagebox.signupgetusd10 .confirmbox { width: 600px; background-color: #FFFFFF; /*background: url(../image/product/gray85.png) repeat;*/ position: absolute; }
+.floatgraybox .messagebox.signupgetusd10 .confirmbox .cbtitle { width: 100%; text-align: center; margin: 30px 0 0 0; float: left; font-size: 14px; font-weight: normal; }
+.floatgraybox .messagebox.signupgetusd10 .confirmbox .cbcontent { width: 100%; margin: 0; padding: 30px; float: left; }
+.floatgraybox .messagebox.signupgetusd10 .confirmbox .cbcontent td { font-size: 12px; line-height: 140%; padding: 8px 0 8px 0; }
+.floatgraybox .messagebox.signupgetusd10 .confirmbox .cbsubmit { width: 100%; margin: 0; float: left; text-align: center; }
+.floatgraybox .messagebox.signupgetusd10 .confirmbox .cbsubmit a { height: 22px; color: #000000; font-weight: bold; background: url(../image/product/confirmmeasurebtn.jpg) no-repeat; margin: 0; padding: 6px 20px; }
+.floatgraybox .messagebox.signupgetusd10 .confirmbox .cbsubmit a:hover { text-decoration: none; background-position: 0 -28px; }
+
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box { width: 100%; font-family: Verdana, Arial, Helvetica, sans-serif; text-align: center; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .title { font-size: 24px; color: #C63F7A; font-family: Georgia, serif; padding-top: 25px; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .subtitle { font-size: 12px; color: #666666; font-style: italic; padding: 7px 0 20px 0; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .steps { font-size: 12px; color: #555555; font-weight: bold; display: inline-block; padding-top: 21px; width: 160px; text-align: right; vertical-align: top; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .steps_content { display: inline-block; padding-top: 21px; width: 423px; padding-left: 17px; text-align: left; font-size: 14px; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .steps_content td { font-size: 14px; color: #555555; padding: 3px 0; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .steps_content input { font-size: 12px; height: 25px; padding: 0 10px; margin: 0 0 0 5px; width: 220px; color: #555555; font-style: italic; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .submitbtn { margin-top: 22px; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .submitbtn a { font-size: 16px; color: #FFFFFF; background-color: #C63F7A; padding: 10px 25px; letter-spacing: 1px; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .submitbtn a:hover { text-decoration: none; background-color: #E04C93; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .text { font-size: 14px; color: #555555; padding-top: 25px; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .text a { font-size: 14px; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box span.error { letter-spacing: none; padding: 3px 0 0 8px; font-size: 11px; display: block; text-align: left; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box input.error { border: 1px solid #FF6666; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .facebookbox span.error { width: 380px; }
+
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .success_text_0 { font-size: 16px; color: #26ACC3; padding-top: 40px; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .success_text_1 { padding-top: 40px; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .success_text_1 a { font-size: 18px; color: #333333; font-family: Georgia, serif; text-decoration: underline; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .text { font-size: 14px; color: #666666; padding: 40px 0 35px 0; width: 320px; margin: 0 auto; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .text a { font-size: 14px; }
+.floatgraybox .messagebox.signupgetusd10 .signupgetusd10box .text li { list-style-type: none; font-size: 12px; text-align: left; line-height: 170%; }
+
+.floatgraybox .messagebox.entertowin { width: 764px; background-color: transparent; float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_top_bg { width: 738px; }
+.floatgraybox .messagebox.entertowin .messagebox_body_container { width: 750px; }
+.floatgraybox .messagebox.entertowin .messagebox_lower_left { width: 382px; }
+.floatgraybox .messagebox.entertowin .messagebox_lower_right { width: 382px; }
+.floatgraybox .messagebox.entertowin .messagebox_body { background: #FFFFFF; }
+
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox { width: 750px; height: 540px; float; left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .title { width: 750px; height: 25px; color: #C2437A; font-size: 18px; text-align: center; background: url(../image/public/entertowintitle.jpg) no-repeat center top; margin: 15px 0 0 0; float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .stitle { width: 690px; color: #333333; font-size: 14px; font-family: "Georgia"; line-height: 20px; margin: 15px 0 0 35px; float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .line { width: 710px; height: 1px; font-size: 1px; border-bottom: 1px solid #C1C1C1; margin: 12px 0 0 20px; float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .picbox { width: 267px; height: 380px; background: url(../image/public/entertowinpic.jpg) no-repeat; margin: 15px 0 0 20px; float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .picbox img { height: 380px; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox { width: 422px; margin: 16px 0 0 20px; float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox { width: 422px; margin: 2px 0 0 0; float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox .iptname { width: 130px; font-size: 12px; text-align: right; margin: 4px 0 0 0; float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox .iptname font { color: #FF6000; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox input { width: 280px; height: 21px; border-top: 1px solid #ABADB3; border-right: 1px solid #DBDFE6; border-bottom: 1px solid #DBDFE6; border-left: 1px solid #DBDFE6; margin: 0 0 0 8px; float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox .rtl { width: 280px; font-size: 11px; margin: 0 0 0 138px; float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox .rtl font { color: #787878; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox .rct { width: 280px; margin: 5px 0 0 136px; float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox .rct select { float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox .rct.checkboxct { width: 280px; color: #333333; font-size: 11px; line-height: 16px; margin: 8px 0 0 138px; float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox .rct .checkboxbtn { width: 12px; height: 12px; background: url(../image/register/checkboxbackground.jpg) no-repeat; margin: 1px 5px 0 0; float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox .rct .checkboxbtn:hover { background-position: right top; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox .rct .checkboxbtn.current { background-position: -12px top; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox .button { height: 20px; color: #FFFFFF; font-family: "Georgia"; font-style: italic; font-weight: normal; background: url(../image/register/btnbackground.jpg) repeat-x; margin: 10px 0 0 138px; padding: 8px 15px 0 15px; float: left; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox .button:hover { background-position: left bottom; }
+.floatgraybox .messagebox.entertowin .messagebox_body .entertowinbox .rightbox .rowbox .errmsg { width: 280px; height: 15px; color: #FF6666; font-size: 10px; margin: 2px 0 0 138px; float: left; }
+
+.floatgraybox .messagebox.firstadd { width: 764px; background-color: transparent; float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_top_bg { width: 738px; }
+.floatgraybox .messagebox.firstadd .messagebox_body_container { width: 750px; }
+.floatgraybox .messagebox.firstadd .messagebox_lower_left { width: 382px; }
+.floatgraybox .messagebox.firstadd .messagebox_lower_right { width: 382px; }
+.floatgraybox .messagebox.firstadd .messagebox_body { background: #FFFFFF; }
+
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox { width: 750px; height: 540px; float; left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .title { width: 750px; height: 25px; color: #C2437A; font-size: 18px; text-align: center; background: url(../image/public/firstaddtitle.jpg) no-repeat center top; margin: 15px 0 0 0; float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .stitle { width: 690px; color: #333333; font-size: 14px; font-family: "Georgia"; line-height: 20px; margin: 15px 0 0 35px; float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .line { width: 710px; height: 1px; font-size: 1px; border-bottom: 1px solid #C1C1C1; margin: 12px 0 0 20px; float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .picbox { width: 267px; height: 380px; background: url(../image/public/firstaddpic.jpg) no-repeat; margin: 15px 0 0 20px; float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .picbox img { height: 380px; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox { width: 422px; margin: 16px 0 0 20px; float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox { width: 422px; margin: 2px 0 0 0; float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox .iptname { width: 130px; font-size: 12px; text-align: right; margin: 4px 0 0 0; float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox .iptname font { color: #FF6000; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox input { width: 280px; height: 21px; border-top: 1px solid #ABADB3; border-right: 1px solid #DBDFE6; border-bottom: 1px solid #DBDFE6; border-left: 1px solid #DBDFE6; margin: 0 0 0 8px; float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox .rtl { width: 280px; font-size: 11px; margin: 0 0 0 138px; float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox .rtl font { color: #787878; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox .rct { width: 280px; margin: 5px 0 0 136px; float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox .rct select { float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox .rct.checkboxct { width: 280px; color: #333333; font-size: 11px; line-height: 16px; margin: 8px 0 0 138px; float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox .rct .checkboxbtn { width: 12px; height: 12px; background: url(../image/register/checkboxbackground.jpg) no-repeat; margin: 1px 5px 0 0; float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox .rct .checkboxbtn:hover { background-position: right top; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox .rct .checkboxbtn.current { background-position: -12px top; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox .button { height: 20px; color: #FFFFFF; font-family: "Georgia"; font-style: italic; font-weight: normal; background: url(../image/register/btnbackground.jpg) repeat-x; margin: 10px 0 0 138px; padding: 8px 15px 0 15px; float: left; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox .button:hover { background-position: left bottom; }
+.floatgraybox .messagebox.firstadd .messagebox_body .firstaddbox .rightbox .rowbox .errmsg { width: 280px; height: 15px; color: #FF6666; font-size: 10px; margin: 2px 0 0 138px; float: left; }
+
+.floatgraybackground.freeshippingpop { z-index: 100; }
+.floatgraybox.freeshippingpop { z-index: 1000; }
+.floatgraybox .messagebox.freeshippingpop { width: 617px; background-color: transparent; float: left; z-index: 300; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_top_bg { width: 591px; background-image: url(../image/messagebox_top_bg.png); }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body_container { width: 600px; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_lower_left { width: 307px; background-image: url(../image/messagebox_lower_left.png); }
+.floatgraybox .messagebox.freeshippingpop .messagebox_lower_right { width: 307px; background-image: url(../image/messagebox_lower_right.png); }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body { height: 400px; width: 600px; background: #FFFFFF; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body .shippingpopbg { width: 600px; height: 400px; float: left; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body .shippingpopbg a.freeshippingpop { width: 200px; height: 30px; background: url(../image/public/freeshippingpopbtn.jpg) no-repeat; margin: 330px 0 0 200px; float: left; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body .shippingpopbg a.freeshippingpop:hover { background-position: left bottom; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body .shippingpopbg.all { background: url(../image/public/free_shipping_pop_all.jpg) #FFFFFF no-repeat 0 -10px; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body .shippingpopbg.au { background: url(../image/public/free_shipping_pop_au.jpg) #FFFFFF no-repeat 0 -10px; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body .shippingpopbg.ca { background: url(../image/public/free_shipping_pop_ca.jpg) #FFFFFF no-repeat 0 -10px; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body .shippingpopbg.gb { background: url(../image/public/free_shipping_pop_gb.jpg) #FFFFFF no-repeat 0 -10px; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body .shippingpopbg.ie { background: url(../image/public/free_shipping_pop_ie.jpg) #FFFFFF no-repeat 0 -10px; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body .shippingpopbg.us { background: url(../image/public/free_shipping_pop_us.jpg) #FFFFFF no-repeat 0 -10px; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body .xmassalepopbg { width: 985px; height: 650px; float: left; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body .xmassalepopbg a.freeshippingpop { width: 985px; height: 650px; background: url(../image/public/xmas_sale_pop.jpg) #FFFFFF no-repeat 0 0; float: left; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body .xmassalepopbg a.freeshippingpop:hover { background-position: left bottom; }
+.floatgraybox .messagebox.freeshippingpop .messagebox_body .xmassalepopbg {  }
