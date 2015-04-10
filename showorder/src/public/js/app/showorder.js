@@ -82,19 +82,12 @@ function ShowOrder() {
 				rules: {
 					title: {
 						required: true,
-						input_name: true	
-					},
-					productIds: {
-						required: true	
 					}
 				},
 				messages: {
 					name: {
 						required: '必须添加标题.'	
-					},
-					displayName: {
-						required: '必须添加关联商品.'	
-					}	
+					}
 				}
 			});
 
@@ -151,19 +144,12 @@ function ShowOrder() {
 				rules: {
 					title: {
 						required: true,
-						input_name: true	
-					},
-					productIds: {
-						required: true	
 					}
 				},
 				messages: {
 					name: {
 						required: '必须添加标题.'	
-					},
-					displayName: {
-						required: '必须添加关联商品.'	
-					}	
+					}
 				}
 			});
 

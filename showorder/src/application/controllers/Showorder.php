@@ -75,7 +75,7 @@ class ShoworderController extends Controller_Base
         $data = array(
             'title' => $this->getPost('title'),
             'img' => $this->getPost('img'),
-            'comment' => $this->getPost('description'),
+            'comment' => strip_tags($this->getPost('description')),
             'product_ids'  => $this->getPost('productIds'),
             'enable' => ($this->getPost('status') == 'on') ? 1 : 0,
             'refer_url' => $this->getPost('refer_url'),
@@ -261,7 +261,7 @@ class ShoworderController extends Controller_Base
         $data = array(
             'title' => $this->getPost('title'),
             'img' => $this->getPost('img'),
-            'comment' => $this->getPost('description'),
+            'comment' => strip_tags($this->getPost('description')),
             'product_ids'  => $this->getPost('productIds'),
             'enable' => ($this->getPost('status') == 'on') ? 1 : 0,
             'refer_url' => $this->getPost('refer_url'),
