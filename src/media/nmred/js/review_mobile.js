@@ -50,7 +50,7 @@ jQuery(document).ready(function() {
 		htmlstr += '<div class="review-pic-slider" style="width:100%">';
 		htmlstr += '<ul class="review-pic-slider-content">';
 		for(var i = 0; i < data['images'].length; i++) {
-			htmlstr += '<li><img src="' + data['images'][i]['url'] + '" /></li>';
+			htmlstr += '<li><img src="' + data['images'][i]['url'] + '" style="width:400px;heigth:auto"/></li>';
 		}
 		htmlstr += '</ul></div>';
 		htmlstr += '<div class="review-slider-bg"></div>';

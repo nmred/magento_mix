@@ -1,6 +1,6 @@
-.reviews { width: 1002px; border-top: 1px dashed #555555; margin: 20px 0 20px 0; float: left; }
-	.reviews .title { width: 1002px; color: #000000; font-size: 14px; text-align: center; border-bottom: 1px dashed #555555; padding: 10px 0 10px 0; float: left; }
-	.reviews .stitle { width: 999px; font-size: 12px; font-family: "Georgia"; margin: 10px 0 0 0; padding: 0 0 0 3px; float: left; }
+.reviews { width: 960px; margin: 0px 0 0px 0; float: left; }
+	.reviews .title { width: 960px; color: #000000; font-size: 14px; text-align: center; border-bottom: 1px dashed #555555; padding: 10px 0 10px 0; float: left; }
+	.reviews .stitle { width: 959px; font-size: 12px; font-family: "Georgia"; margin: 10px 0 0 0; padding: 0 0 0 3px; float: left; }
 	.reviews .stitle a { color: #C2437A; font-size: 12px; font-family: "Verdana"; margin: 0 3px 0 0; float: right; }
 	.reviews .stitle span { color: #C2437A; margin: 0 4px 0 2px; float: right; }
 
@@ -10,12 +10,12 @@
 	.reviews .larrow a:hover { background-position: left bottom; }
 	.reviews .rarrow a { background-position: right top; margin: 70px 0 0 7px; }
 	.reviews .rarrow a:hover { background-position: right bottom; }
-	.reviews .listbox { width: 956px; height: 180px; margin: 15px 0 0 0; float: left; overflow: hidden; }
-	.reviews .listbox .slider { width: 36000px; height: 180px; float: left; }
-	.reviews .listbox .slider .perslider { width: 956px; height: 180px; float: left; overflow: hidden; }
-	.reviews .listbox .slider .perslider .persliderbox { width: 1000px; height: 180px; float: left; }
-	.reviews .listbox .slider .perslider .persliderbox .perbox { width: 180px; margin: 0 14px 0 0; float: left; }
-	.reviews .listbox .slider .perslider .persliderbox .perbox a.thumb { width: 180px; height: 130px; float: left; overflow: hidden; }
+	.reviews .listbox { width: 910px; height: 170px; margin: 15px 0 0 0; float: left; overflow: hidden; }
+	.reviews .listbox .slider { width: 36000px; height: 170px; float: left; }
+	.reviews .listbox .slider .perslider { width: 910px; height: 170px; float: left; overflow: hidden; }
+	.reviews .listbox .slider .perslider .persliderbox { width: 950px; height: 170px; float: left; }
+	.reviews .listbox .slider .perslider .persliderbox .perbox { width: 170px; margin: 0 14px 0 0; float: left; }
+	.reviews .listbox .slider .perslider .persliderbox .perbox a.thumb { width: 170px; height: 130px; float: left; overflow: hidden; }
 	.reviews .listbox .slider .perslider .persliderbox .perbox a.thumb img { height: 130px; float: left; }
 	.reviews .listbox .slider .perslider .persliderbox .perbox .featured { margin: 8px 0 0; float: left; font-size: 80%; color: #555555;}
 
