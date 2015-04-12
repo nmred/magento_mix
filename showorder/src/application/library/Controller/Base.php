@@ -192,7 +192,7 @@ abstract class Controller_Base extends Yaf_Controller_Abstract
 		if ($passToken == $token) {
 			return true;
 		} else {
-			$this->forward('index', 'login');	
+			$this->redirect('http://show.mixbridal.com');	
 		}
 	}
 
