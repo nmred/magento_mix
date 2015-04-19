@@ -106,7 +106,7 @@ function ShowOrder() {
 				$.ajax ({
 					type: "post",
 					url : _url,
-					data: _formData + '&img=' + imgUrl.join('::') + "&description=" + um.getContent(),
+					data: _formData + '&img=' + imgUrl.join('::') + "&description=" + encodeURIComponent(um.getContent()),
 					dataType: "json",
 					success: function (dataRes) {
 						if (0 != dataRes.status) {
@@ -167,7 +167,7 @@ function ShowOrder() {
 				$.ajax ({
 					type: "post",
 					url : _url,
-					data: _formData + '&img=' + imgUrl.join('::') + "&description=" + um.getContent(),
+					data: _formData + '&img=' + imgUrl.join('::') + "&description=" + encodeURIComponent(um.getContent()),
 					dataType: "json",
 					success: function (dataRes) {
 						if (0 != dataRes.status) {
