@@ -73,8 +73,8 @@ function ShowOrder() {
 				$(":input").val('');	
 			});	
 
-			$('.wysihtml5').wysihtml5();
 			$('.basic-toggle-button').toggleButtons();
+			var um = UM.getEditor('description');
 			FormFileUpload.init();
 
 			__this.validateForm({
@@ -106,7 +106,7 @@ function ShowOrder() {
 				$.ajax ({
 					type: "post",
 					url : _url,
-					data: _formData + '&img=' + imgUrl.join('::'),
+					data: _formData + '&img=' + imgUrl.join('::') + "&description=" + um.getContent(),
 					dataType: "json",
 					success: function (dataRes) {
 						if (0 != dataRes.status) {
@@ -136,7 +136,7 @@ function ShowOrder() {
 				$(":input").val('');	
 			});	
 
-			$('.wysihtml5').wysihtml5();
+			var um = UM.getEditor('description');
 			$('.basic-toggle-button').toggleButtons();
 			FormFileUpload.init();
 			__this.validateForm({
@@ -167,7 +167,7 @@ function ShowOrder() {
 				$.ajax ({
 					type: "post",
 					url : _url,
-					data: _formData + '&img=' + imgUrl.join('::'),
+					data: _formData + '&img=' + imgUrl.join('::') + "&description=" + um.getContent(),
 					dataType: "json",
 					success: function (dataRes) {
 						if (0 != dataRes.status) {

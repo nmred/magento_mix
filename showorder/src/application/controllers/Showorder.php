@@ -75,7 +75,7 @@ class ShoworderController extends Controller_Base
         $data = array(
             'title' => $this->getPost('title'),
             'img' => $this->getPost('img'),
-            'comment' => strip_tags($this->getPost('description')),
+            'comment' => strip_tags($this->getPost('description', null, false), '<a>'),
             'product_ids'  => $this->getPost('productIds'),
             'enable' => ($this->getPost('status') == 'on') ? 1 : 0,
             'refer_url' => $this->getPost('refer_url'),
@@ -134,6 +134,11 @@ class ShoworderController extends Controller_Base
 				'limit' => $length,
 				'offset' => $start
 			));
+			if (!empty($result)) {
+				foreach ($result as $key => $value) {
+					$result[$key]['comment'] = strip_tags($value['comment']);	
+				}	
+			}
         } catch (Exception $e) {
             return $this->errorAjaxRender($e->getMessage(), 1000);
         }
@@ -261,7 +266,7 @@ class ShoworderController extends Controller_Base
         $data = array(
             'title' => $this->getPost('title'),
             'img' => $this->getPost('img'),
-            'comment' => strip_tags($this->getPost('description')),
+            'comment' => strip_tags($this->getPost('description', null, false), '<a>'),
             'product_ids'  => $this->getPost('productIds'),
             'enable' => ($this->getPost('status') == 'on') ? 1 : 0,
             'refer_url' => $this->getPost('refer_url'),
