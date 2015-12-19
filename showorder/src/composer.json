@@ -5,7 +5,9 @@
         "php": ">=5.3.3",
 		"zendframework/zend-db": "2.3.3",
 		"zendframework/zend-stdlib": "2.3.3",
-		"nmred/kafka-php": "0.1.1"
+		"nmred/kafka-php": "0.1.1",
+		"phpmailer/phpmailer": "~5.2",
+		"phpoffice/phpexcel" : "*"
     },
 	"require-dev": {
 		"phpunit/PHPUnit": "3.7.*",

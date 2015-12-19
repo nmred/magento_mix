@@ -8,7 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Zend\\Stdlib\\' => array($vendorDir . '/zendframework/zend-stdlib'),
     'Zend\\Db\\' => array($vendorDir . '/zendframework/zend-db'),
-    'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
+    'PHPExcel' => array($vendorDir . '/phpoffice/phpexcel/Classes'),
     'Kafka\\' => array($vendorDir . '/nmred/kafka-php/src'),
     'KafkaTest\\' => array($vendorDir . '/nmred/kafka-php/tests'),
 );
