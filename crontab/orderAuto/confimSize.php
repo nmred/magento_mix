@@ -28,14 +28,6 @@ class ConfirmSize {
 	 */
 	protected $connection = null;
 
-	/**
-	 * sendAllOrderIds 
-	 * 
-	 * @var array
-	 * @access protected
-	 */
-	protected $sendAllOrderIds = array();
-
 	// }}}
 	// {{{ functions
 	// {{{ public function __construct()
@@ -63,16 +55,16 @@ class ConfirmSize {
 	 * @return void
 	 */
 	protected function getOrderList($type = self::ORDER_TYPE_PROCESSING, $time = '') {
-		if (empty($this->sendAllOrderIds)) {
-			$sql = 'select order_id from send_confirm_sucess';		
-			$stmt = $this->connection->query($sql, PDO::FETCH_ASSOC);
-			if (!$stmt) {
-				$this->sendAllOrderIds = array();	
-			}
-			
-			foreach ($stmt as $row) {
-				$this->sendAllOrderIds[] = $row['order_id'];
-			}
+		$typeId = ($type == self::ORDER_TYPE_PROCESSING) ? 1 : 2;
+		$sql = 'select order_id from send_confirm_sucess where type=' . $typeId;		
+		$stmt = $this->connection->query($sql, PDO::FETCH_ASSOC);
+		$sendAllOrderIds = array();
+		if (!$stmt) {
+			return array();
+		}
+		
+		foreach ($stmt as $row) {
+			$sendAllOrderIds[] = $row['order_id'];
 		}
 
 		$sql = 'select entity_id,customer_email,customer_firstname, increment_id'
@@ -88,7 +80,7 @@ class ConfirmSize {
 		
 		$list = array();
 		foreach ($stmt as $row) {
-			if (in_array($row['entity_id'], $this->sendAllOrderIds)) {
+			if (in_array($row['entity_id'], $sendAllOrderIds)) {
 				continue;
 			}
 			$list[] = $row;
@@ -188,7 +180,7 @@ class ConfirmSize {
 			}
 
 			if ($rev) {
-				$this->sendSuccess($order);
+				$this->sendSuccess(1, $order);
 			} else {
 				echo "Send Mail fail, " . var_export($order, true), PHP_EOL;
 			}
@@ -209,8 +201,9 @@ class ConfirmSize {
 		foreach ($pending as $order) {
 			$order['id'] = $order['increment_id'];
 			$rev = $this->sendPending($order);
+			$rev = true;
 			if ($rev) {
-				$this->sendSuccess($order);
+				$this->sendSuccess(2, $order);
 			} else {
 				echo "Send Mail fail, " . var_export($order, true), PHP_EOL;
 			}
@@ -306,7 +299,7 @@ EOT;
 		$body = <<<EOT
 Hi {$orderInfo['customer_firstname']},<br/>
 <br/>
-Thanks for your recent order with Mix Bridal! We noticed that your recent bridesmaid dress order is pending, which means the payment was not successfully completed. Did you have any difficulty when doing the payment? Is there anything we can help you please?<br/>
+Thanks for your recent order with Mix Bridal! We noticed that your order is pending, which means the payment was not successfully completed. Did you have any difficulty when doing the payment? Is there anything we can help you please?<br/>
 <br/>
 Look forward to your reply.<br/>
 <br/>
@@ -315,7 +308,6 @@ Best,<br/>
 Sally<br/>
 Account Manager<br/>
 Mix Bridal<br/>
-
 EOT;
 		return $this->sendMail($orderInfo['customer_email'], $title, $body);
 	}
@@ -323,8 +315,8 @@ EOT;
 	// }}}
 	// {{{ protected function sendSuccess()
 
-	protected function sendSuccess($orderInfo) {	
-		$sql = 'insert into send_confirm_sucess (order_id) VALUES(' . $orderInfo['entity_id'] . ')';	
+	protected function sendSuccess($typeId, $orderInfo) {	
+		$sql = 'insert into send_confirm_sucess (order_id, type) VALUES(' . $orderInfo['entity_id'] . ', ' . $typeId. ')';	
 		$affected = $this->connection->exec($sql);
 	}
 
