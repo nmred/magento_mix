@@ -62,7 +62,7 @@ class ConfirmSize {
 	 * @access protected
 	 * @return void
 	 */
-	protected function getOrderList($type = self::ORDER_TYPE_PROCESSING) {
+	protected function getOrderList($type = self::ORDER_TYPE_PROCESSING, $time = '') {
 		if (empty($this->sendAllOrderIds)) {
 			$sql = 'select order_id from send_confirm_sucess';		
 			$stmt = $this->connection->query($sql, PDO::FETCH_ASSOC);
@@ -74,8 +74,13 @@ class ConfirmSize {
 				$this->sendAllOrderIds[] = $row['order_id'];
 			}
 		}
+
 		$sql = 'select entity_id,customer_email,customer_firstname, increment_id'
 			   . ' from sales_flat_order where status=\'' . $type . '\'';		
+		if ($time) {
+			$endTimeStr = date('Y-m-d H:i:s', $time);
+			$sql .= ' and created_at < \'' . $endTimeStr . '\'';	
+		}
 		$stmt = $this->connection->query($sql, PDO::FETCH_ASSOC);
 		if (!$stmt) {
 			return array();	
@@ -200,7 +205,7 @@ class ConfirmSize {
 	 * @return void
 	 */
 	protected function processPending() {
-		$pending = $this->getOrderList(self::ORDER_TYPE_PENDING);
+		$pending = $this->getOrderList(self::ORDER_TYPE_PENDING, time() - 3600);
 		foreach ($pending as $order) {
 			$order['id'] = $order['increment_id'];
 			$rev = $this->sendPending($order);
