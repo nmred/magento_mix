@@ -3,16 +3,6 @@ require_once '../../showorder/src/vendor/autoload.php';
 class autoCollect {
 	// {{{ consts
 	
-	const DB_NAME = 'magento';
-
-	const DB_HOST = '172.16.197.128';
-
-	const DB_PORT = 3306;
-
-	const DB_USER = 'nmred';
-
-	const DB_PASS = '123456';
-
 	const ORDER_TYPE_PROCESSING = 'processing';
 	const ORDER_TYPE_PENDING	= 'pending_payment';
 
@@ -26,6 +16,14 @@ class autoCollect {
 	 * @access protected
 	 */
 	protected $connection = null;
+
+	/**
+	 * config 
+	 * 
+	 * @var string
+	 * @access protected
+	 */
+	protected $config = array();
 
 	/**
 	 * sendAllOrderIds 
@@ -48,15 +46,21 @@ class autoCollect {
 	// {{{ public function __construct()
 
 	public function __construct() {
-		$dsn = 'mysql:dbname=%s;host=%s;port=%s';
-		$dsn = sprintf($dsn, self::DB_NAME, self::DB_HOST, self::DB_PORT);
-
-		try {
-			$this->connection = new PDO($dsn, self::DB_USER, self::DB_PASS);
-		} catch (PDOException $e) {
-			echo 'Connection failed: ' . $e->getMessage();
-			exit(1);
+		$data = parse_ini_file('app.ini', true);
+		$config = isset($data['autoCollect']) ? $data['autoCollect'] : array();
+		if (empty($config)) {
+			throw new \Exception("Not autoCollect config.");
 		}
+		$this->config = $config;
+        $dsn = 'mysql:dbname=%s;host=%s;port=%s';
+        $dsn = sprintf($dsn, $config['mysql_dbname'], $config['mysql_host'], $config['mysql_port']);
+
+        try {
+            $this->connection = new PDO($dsn, $config['mysql_user'], $config['mysql_pass']);
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+            exit(1);
+        }
 	}
 
 	// }}}
@@ -305,10 +309,10 @@ class autoCollect {
 		}
 		$mail = new PHPMailer;
 		$mail->isSMTP();                                      // Set mailer to use SMTP
-		$mail->Host = 'smtp.exmail.qq.com';  // Specify main and backup SMTP servers
-		$mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$mail->Username = '';                 // SMTP username
-		$mail->Password = '';                           // SMTP password
+		$mail->Host = $this->config['smtp_host'];  // Specify main and backup SMTP servers
+		$mail->SMTPAuth = true;                              // Enable SMTP authentication
+		$mail->Username = $this->config['smtp_user'];        // SMTP username
+		$mail->Password = $this->config['smtp_pass'];        // SMTP password
 		$mail->Port = 25;                                    // TCP port to connect to
 
 		$mail->setFrom('service@mixbridal.com', 'Mixbridal Service');

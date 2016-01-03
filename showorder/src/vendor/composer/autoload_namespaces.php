@@ -6,8 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'stringEncode' => array($vendorDir . '/paquettg/string-encode/src'),
     'Zend\\Stdlib\\' => array($vendorDir . '/zendframework/zend-stdlib'),
     'Zend\\Db\\' => array($vendorDir . '/zendframework/zend-db'),
+    'PHPHtmlParser' => array($vendorDir . '/paquettg/php-html-parser/src'),
     'PHPExcel' => array($vendorDir . '/phpoffice/phpexcel/Classes'),
     'Kafka\\' => array($vendorDir . '/nmred/kafka-php/src'),
     'KafkaTest\\' => array($vendorDir . '/nmred/kafka-php/tests'),

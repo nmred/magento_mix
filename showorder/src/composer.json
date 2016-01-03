@@ -7,6 +7,7 @@
 		"zendframework/zend-stdlib": "2.3.3",
 		"nmred/kafka-php": "0.1.1",
 		"phpmailer/phpmailer": "~5.2",
+		"paquettg/php-html-parser" : "1.6.8",
 		"phpoffice/phpexcel" : "*"
     },
 	"require-dev": {

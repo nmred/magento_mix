@@ -4,17 +4,8 @@ require_once '../../showorder/src/vendor/autoload.php';
 class ConfirmSize {
 	// {{{ consts
 	
-	const DB_NAME = 'magento';
-
-	const DB_HOST = '172.16.197.128';
-
-	const DB_PORT = 3306;
-
-	const DB_USER = 'nmred';
-
-	const DB_PASS = '123456';
-
 	const ORDER_TYPE_PROCESSING = 'processing';
+	const ORDER_TYPE_PAYMENT_REVIEW = 'payment_review';
 	const ORDER_TYPE_PENDING	= 'pending_payment';
 
 	// }}}
@@ -28,20 +19,34 @@ class ConfirmSize {
 	 */
 	protected $connection = null;
 
+	/**
+	 * config 
+	 * 
+	 * @var array
+	 * @access protected
+	 */
+	protected $config = array();
+
 	// }}}
 	// {{{ functions
 	// {{{ public function __construct()
 
 	public function __construct() {
-		$dsn = 'mysql:dbname=%s;host=%s;port=%s';
-		$dsn = sprintf($dsn, self::DB_NAME, self::DB_HOST, self::DB_PORT);
-
-		try {
-			$this->connection = new PDO($dsn, self::DB_USER, self::DB_PASS);
-		} catch (PDOException $e) {
-			echo 'Connection failed: ' . $e->getMessage();
-			exit(1);
+		$data = parse_ini_file('app.ini', true);
+		$config = isset($data['confimSize']) ? $data['confimSize'] : array();
+		if (empty($config)) {
+			throw new \Exception("Not confimSize config.");
 		}
+		$this->config = $config;
+        $dsn = 'mysql:dbname=%s;host=%s;port=%s';
+        $dsn = sprintf($dsn, $config['mysql_dbname'], $config['mysql_host'], $config['mysql_port']);
+
+        try {
+            $this->connection = new PDO($dsn, $config['mysql_user'], $config['mysql_pass']);
+        } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+            exit(1);
+        }
 	}
 
 	// }}}
@@ -55,7 +60,7 @@ class ConfirmSize {
 	 * @return void
 	 */
 	protected function getOrderList($type = self::ORDER_TYPE_PROCESSING, $time = '') {
-		$typeId = ($type == self::ORDER_TYPE_PROCESSING) ? 1 : 2;
+		$typeId = ($type == self::ORDER_TYPE_PROCESSING || $type == self::ORDER_TYPE_PAYMENT_REVIEW) ? 1 : 2;
 		$sql = 'select order_id from send_confirm_sucess where type=' . $typeId;		
 		$stmt = $this->connection->query($sql, PDO::FETCH_ASSOC);
 		$sendAllOrderIds = array();
@@ -145,6 +150,10 @@ class ConfirmSize {
 	 */
 	protected function processProcessing() {
 		$processing = $this->getOrderList(self::ORDER_TYPE_PROCESSING);
+		$payment_review = $this->getOrderList(self::ORDER_TYPE_PAYMENT_REVIEW);
+		foreach ($payment_review as $val) {
+			$processing[] = $val;		
+		}
 		foreach ($processing as $order) {
 			$order['id'] = $order['increment_id'];
 			$items = $this->getOrderItems($order['entity_id']);		
@@ -156,6 +165,9 @@ class ConfirmSize {
 			$isLace = true;
 			foreach ($items as $item) {
 				$categroy = $this->getProductCategory($item['product_id']);	
+				if (in_array(209, $categroy)) {
+					continue;	
+				}
 				$dressesCates = array(223, 222, 221, 220, 219, 218, 216, 208, 204, 203);
 				$dresses = array_intersect($dressesCates, $categroy);
 				$isDresses = false;
@@ -181,7 +193,7 @@ class ConfirmSize {
 
 			if ($rev) {
 				$this->sendSuccess(1, $order);
-			} else {
+			} else if ($dressesCount) {
 				echo "Send Mail fail, " . var_export($order, true), PHP_EOL;
 			}
 		}
@@ -218,16 +230,25 @@ class ConfirmSize {
 		$body = <<<EOT
 Hi {$orderInfo['customer_firstname']},<br/>
 <br/>
-Thanks for your order with us, we've confirmed your payment, but before we start tailoring the dress for you, could you firstly confirm with us if you compared your body measurements with our size chart before deciding the size for your dress? As we are running US sizes for the current FHFH bridesmaid dresses we carry. Thanks!<br/>
+Thanks for your order with us, we've confirmed your payment, but before we start tailoring the dress for you, could you firstly confirm with us if you compared your body measurements with our size chart before deciding the size for your dress? As we are running US sizes for the current FHFH bridesmaid dresses we carry. Thanks!
 <br/>
-FHFH size chart:<br/>
+FHFH size chart:
 <br/>
-http://www.mixbridal.com/how-to-measure-size-chart.html<br/>
 <br/>
-Also, is this dress for one of your bridesmaids and if you like it, you will purchase more for the rest of your maids?<br/>
+
+http://www.mixbridal.com/how-to-measure-size-chart.html
 <br/>
-Your earliest reply is appreciated.<br/>
+
 <br/>
+If you chose custom size, please simply reply to us with the exact measurements for your dress, we will help add the measurements to your order for you!
+<br/>
+<br/>
+
+Also, is this dress for one of your bridesmaids and if you like it, you will purchase more for the rest of your maids?
+<br/>
+<br/>
+
+Your earliest reply is appreciated.
 <br/>
 <br/>
 Best, <br/> Sally <br/>
@@ -248,11 +269,18 @@ Hi {$orderInfo['customer_firstname']},<br/>
 <br/>
 Thanks for your order with us, we've confirmed your payment, but before we start tailoring the dress for you, could you firstly confirm with us if you compared your body measurements with our size chart before deciding the size for your dress? As we are running US sizes for the current FHFH bridesmaid dresses we carry. Thanks!<br/>
 <br/>
-FHFH size chart:<br/>
+FHFH size chart:
 <br/>
-http://www.mixbridal.com/how-to-measure-size-chart.html<br/>
+
+http://www.mixbridal.com/how-to-measure-size-chart.html
 <br/>
-Your earliest reply is appreciated.<br/>
+<br/>
+
+If you chose custom size, please simply reply to us with the exact measurements for your dress, we will help add the measurements to your order for you!
+<br/>
+<br/>
+
+Your earliest reply is appreciated.
 <br/>
 <br/>
 Best,<br/>
@@ -272,15 +300,21 @@ EOT;
 		$body = <<<EOT
 Hi {$orderInfo['customer_firstname']},<br/>
 <br/>
-Thanks for your order with us, we've confirmed your payment, but before we start tailoring the dresses for you, could you firstly confirm with us if you guys compared your body measurements with our size chart before deciding the sizes for your dresses? As we are running US sizes for the current FHFH bridesmaid dresses we carry. Thanks!<br/>
+Thanks for your order with us, we've confirmed your payment, but before we start tailoring the dresses for you, could you firstly confirm with us if your bridesmaids compared your body measurements with our size chart before deciding their sizes? As we are running US sizes for the current FHFH bridesmaid dresses we carry. Thanks!<br/>
 <br/>
-FHFH Size Chart:<br/>
+FHFH Size Chart:
 <br/>
-http://www.mixbridal.com/how-to-measure-size-chart.html<br/>
+
+http://www.mixbridal.com/how-to-measure-size-chart.html
 <br/>
-BTW, are all the dresses for you and you plan to keep the one that you like the best?<br/>
 <br/>
-Your earliest reply is appreciated.<br/>
+
+If you chose custom size for all or some of your dresses, please simply reply to us with the exact measurements for each dress, we will help add the measurements to your order for you!
+<br/>
+<br/>
+
+Your earliest reply is appreciated.
+<br/>
 <br/>
 Best,<br/>
 Sally<br/>
@@ -332,21 +366,21 @@ EOT;
 	 * @return void
 	 */
 	protected function sendMail($email, $title, $body) {
-		$email = 'service@mixbridal.com';	
+		$email = 'nmred_2008@126.com';	
 		if (!$email) {
 			return false;
 		}
 		$mail = new PHPMailer;
 		$mail->isSMTP();                                      // Set mailer to use SMTP
-		$mail->Host = '';  // Specify main and backup SMTP servers
+		$mail->Host = $this->config['smtp_host'];  // Specify main and backup SMTP servers
 		$mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$mail->Username = '';                 // SMTP username
-		$mail->Password = '';                           // SMTP password
+		$mail->Username = $this->config['smtp_user'];                 // SMTP username
+		$mail->Password = $this->config['smtp_pass'];                           // SMTP password
 		$mail->Port = 25;                                    // TCP port to connect to
 
-		$mail->setFrom('nmred_2008@126.com', 'Mailer');
+		$mail->setFrom('service@mixbridal.com', 'Mix Bridal');
 		$mail->addAddress($email);               // Name is optional
-		$mail->addAddress('nmred_2008@126.com');               // Name is optional
+		$mail->addAddress('service@mixbridal.com');               // Name is optional
 
 		$mail->isHTML(true);                                  // Set email format to HTML
 
