@@ -66,14 +66,14 @@ class SyncReview {
 	 * @return void
 	 */
 	protected function nonExists($reviewIds) {
-		$sql = 'select review_id from syncreview_entity where in (' . implode(',', $reviewIds) . ')';;
+		$sql = 'select review_id from syncreview_entity where review_id in (' . implode(',', $reviewIds) . ')';;
 		$stmt = $this->connection->query($sql, PDO::FETCH_ASSOC);
 		if (!$stmt) {
 			return array();
 		}
 		
 		foreach ($stmt as $row) {
-			unset($reviewIds[$row['review_id']]);
+			unset($reviewIds[array_search($row['review_id'], $reviewIds)]);
 		}
 
 		return $reviewIds;
