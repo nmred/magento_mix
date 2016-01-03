@@ -209,11 +209,10 @@ class ConfirmSize {
 	 * @return void
 	 */
 	protected function processPending() {
-		$pending = $this->getOrderList(self::ORDER_TYPE_PENDING, time() - 3600);
+		$pending = $this->getOrderList(self::ORDER_TYPE_PENDING, time() - 9 * 3600);
 		foreach ($pending as $order) {
 			$order['id'] = $order['increment_id'];
 			$rev = $this->sendPending($order);
-			$rev = true;
 			if ($rev) {
 				$this->sendSuccess(2, $order);
 			} else {
