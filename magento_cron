@@ -1,0 +1,2 @@
+*/1 * * * * root cd /data0/cron/crontab/orderAuto;/data0/server/php-5.4.38/bin/php /data0/cron/crontab/orderAuto/confimSize.php
+5 0 * * * root cd /data0/cron/crontab/orderAuto;/data0/server/php-5.4.38/bin/php /data0/cron/crontab/orderAuto/autoCollect.php
