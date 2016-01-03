@@ -365,7 +365,6 @@ EOT;
 	 * @return void
 	 */
 	protected function sendMail($email, $title, $body) {
-		$email = 'nmred_2008@126.com';	
 		if (!$email) {
 			return false;
 		}
