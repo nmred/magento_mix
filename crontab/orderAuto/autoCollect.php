@@ -74,7 +74,7 @@ class autoCollect {
 	 * @return void
 	 */
 	protected function getOrderList($type = self::ORDER_TYPE_PROCESSING) {
-		$startTime = (int)(time() / 86400) * 86400;
+		$startTime = (int)(time() / 86400) * 86400 - 86400 - 3600 * 8 - 0 * 86400;
 		$startTimeStr = date('Y-m-d H:i:s', $startTime);
 		$endTimeStr = date('Y-m-d H:i:s', $startTime + 86400);
 		$sql = 'select entity_id,customer_email,customer_firstname, increment_id, shipping_address_id'
