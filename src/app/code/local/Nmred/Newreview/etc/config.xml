@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Nmred_Newreview>
+            <version>1.0.0</version>
+        </Nmred_Newreview>
+    </modules>
+    <frontend>
+        <routers>
+            <newreview>
+                <use>standard</use>
+                <args>
+                    <module>Nmred_Newreview</module>
+                    <frontName>newreview</frontName>
+                </args>
+            </newreview>
+        </routers>
+    </frontend>
+    <global>
+        <blocks>
+            <newreview>
+                <class>Nmred_Newreview_Block</class>
+            </newreview>
+        </blocks>
+    </global>
+</config>

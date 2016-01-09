@@ -343,8 +343,8 @@ Product view
                 
                 <action method="unsetCallChild"><child>container1</child><call>ifEquals</call><if>0</if><key>alias_in_layout</key><key>options_container</key></action>
                 <action method="unsetCallChild"><child>container2</child><call>ifEquals</call><if>0</if><key>alias_in_layout</key><key>options_container</key></action>
+				<block type="newreview/show" name="newreview.show" template="newreview/show.phtml"/>
 				<block type="showorder/show" name="showorder.show" template="showorder/show.phtml"/>
-            
             </block>
         </reference>
         <reference name="product_review">
