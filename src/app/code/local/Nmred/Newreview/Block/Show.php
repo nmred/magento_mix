@@ -35,6 +35,7 @@ class Nmred_Newreview_Block_Show extends Mage_Core_Block_Template
 					continue;	
 				}
 				$context = trim(strip_tags($val['context']));
+				$result['data'][$key]['lcontext'] = $context;
 				if (strlen($context) > 300) {
 					$context = substr($context, 0, 300) . '... ';
 				}
