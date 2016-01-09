@@ -88,7 +88,7 @@
 .floatgraybox .messagebox .changecolor.confirmbox .cbtitle { color: #000000; }
 
 .floatgraybackground { width: 100%; display: none; background-color: #000000; filter: alpha(opacity=40); -moz-opacity: 0.4; -khtml-opacity: 0.4; opacity: 0.4; top: 0; left: 0; z-index: 20; position: absolute; }
-.floatgraybox { width: 100%; display: none; top: 0; left: 0; z-index: 24; position: absolute; }
+.floatgraybox { width: 100%; display: none; top: 0; left: 0; z-index: 999; position: absolute; }
 .floatgraybox .messagebox { float: left; }
 .floatgraybox .messagebox .messagebox_top_bg { float: left; display: inline-block; padding: 0; margin: 0; height: 26px; background: url(../image/messagebox_top_bg.png) no-repeat; }
 .floatgraybox .messagebox .messageclosebox { float: left; display: inline-block; padding: 0; margin: 0; width: 26px; height: 26px; }
