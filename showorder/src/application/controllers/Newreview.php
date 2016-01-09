@@ -43,18 +43,26 @@ class NewreviewController extends Controller_Base
     {
 		$page = $this->getQuery('page', 0);
 		$id = $this->getQuery('id');
+		$count = $this->getQuery('count', 3);
         try {
             $model = new NewreviewModel();
 			$total = $model->showReview(array(
 				'total' => true,
 				'product_id' => $id,
 			));
-			$result = $model->showReview(array(
-				'columns' => array('entity_id', 'product_id', 'review_id', 'create_time', 'context', 'username'),
-				'limit' => 3,
-				'offset' => $page * 3,
-				'product_id' => $id,
-			));
+			if ($count > 0) {
+				$result = $model->showReview(array(
+					'columns' => array('entity_id', 'product_id', 'review_id', 'create_time', 'context', 'username'),
+					'limit' => $count,
+					'offset' => $page * $count,
+					'product_id' => $id,
+				));
+			} else {
+				$result = $model->showReview(array(
+					'columns' => array('entity_id', 'product_id', 'review_id', 'create_time', 'context', 'username'),
+					'product_id' => $id,
+				));
+			}
 			$result['total'] = $total[0]['num'];
         } catch (Exception $e) {
             return $this->errorAjaxRender($e->getMessage(), 1000);
