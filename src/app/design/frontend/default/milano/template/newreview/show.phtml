@@ -44,7 +44,7 @@ unset($data['product_id']);
 						<?php if ($i == 1) {echo '<b></b>';}?>
 						<a id="review_page_<?php echo $i;?>" product_id="<?php echo $productId;?>" href="javascript:void(0);" rel="<?php echo $i;?>"></a>
 						<?php } ?>
-						<a id="review_page_next" rel="1" href="javascript:void(0);" class="nextpage">NEXT</a>
+						<a id="review_page_next" product_id="<?php echo $productId;?>" rel="1" href="javascript:void(0);" class="nextpage">NEXT</a>
 					</div>
 				</div>
 				<?php } ?>
@@ -109,7 +109,7 @@ jQuery(document).on('click', '.pagination a', function() {
 			if (current == parseInt(globalReviewTotal) - 1) {
 				_html.push('<b class="nextpage">NEXT</b>');
 			} else {
-				_html.push('<a id="review_page_next" rel="' + (parseInt(current) + 1) + '" href="javascript:void(0);" class="nextpage">NEXT</a>');
+				_html.push('<a id="review_page_next"  product_id="' + productId + '" rel="' + (parseInt(current) + 1) + '" href="javascript:void(0);" class="nextpage">NEXT</a>');
 			}		
 			_html.push('</div></div>');
 			_html = _html.join('');
