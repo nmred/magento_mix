@@ -1,4 +1,4 @@
-<?php 
+<?php
 $_helper = $this->helper('catalog/output');
 $_product = $this->getProduct();
 $_config = Mage::getStoreConfig('milanoconfig/productpage');
@@ -164,8 +164,8 @@ $_shortDescription = $_product->getShortDescription();
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 	var consomerOnload = function() {
-    <?php 
-	
+    <?php
+
 	$catesIds = array($_product->getCategoryId());
 	$cateObj = $_product->getCategory();
 	$priceLineView = true;
@@ -187,12 +187,12 @@ $_shortDescription = $_product->getShortDescription();
         } else {
             obj = $$(".addtocont .price-box p .price");
         }
-        
+
         var flag = '';
         obj.each(function(ele) {var tmpPrice = ele.innerText.replace(/[A-Za-z]*/, ''); var price = parseFloat(tmpPrice.substr(1)); var flag = ele.innerText.substr(0, 1);if (price < nmredpriceMin) nmredpriceMin = price;})
         if (nmredpriceMin != Number.MAX_VALUE && nmredpriceMin != 0 && !$$(".clear .tier-prices")[0]) {
-            //$$(".addtocont .price-box").each(function(ele) {ele.remove()})                             
-            var textDom = '<ul class="tier-prices product-pricing" id="nmredPrice"><li>Buy 2 for <span class="price">' + flag + (nmredpriceMin * 0.90).toFixed(2) +'</span> each</li><li>Buy 3-5 for <span class="price">' + flag + (nmredpriceMin * 0.85).toFixed(2) + '</span> each</li><li>Buy 6 or more for <span class="price">' + flag + (nmredpriceMin * 0.80).toFixed(2) + '</span> each</li></ul>'; 
+            //$$(".addtocont .price-box").each(function(ele) {ele.remove()})
+            var textDom = '<ul class="tier-prices product-pricing" id="nmredPrice"><li>Buy 2 for <span class="price">' + flag + (nmredpriceMin * 0.90).toFixed(2) +'</span> each</li><li>Buy 3-5 for <span class="price">' + flag + (nmredpriceMin * 0.85).toFixed(2) + '</span> each</li><li>Buy 6 or more for <span class="price">' + flag + (nmredpriceMin * 0.80).toFixed(2) + '</span> each</li></ul>';
 	    Element.insert($$(".addtocont .price-box")[0], {after: textDom});            $$(".addtocont")[0].style.cssText="width: 300px;";
             $$(".addtocont .product-code")[0].style.cssText="width: 100%;";
             $$(".addtocont .price-box")[0].style.cssText="width: 100px;float: left;margin-top: 33px;";
@@ -203,13 +203,13 @@ $_shortDescription = $_product->getShortDescription();
 	    }
         }
 <?php  } ?>
-		
+
 		// 颜色色块代码======start
 		var textDom = '<div class="nmred_color_con"><div class="nmred_color_top"><div class="nmred_color_title">Select Dress Color: </div><div class="nmred_color_selected"></div><div class="nmred_color_selecte_name"></div></div><div class="nmred_color_box"></div></div>'
 
 		Element.insert(jQuery(".input-box[attrname='Color'] select")[0],{after: textDom});
 		var data = jQuery(".input-box[attrname='Color'] option");
-		var colorMap = {"Apricot Blush":"rgb(240, 192, 178)","Barely Pink":"rgb(255, 219, 223)","Black":"rgb(34, 35, 37)","Blue":"rgb(49, 80, 145)","Blue Topaz":"rgb(109, 157, 219)","Blush":"rgb(246, 211, 185)","Bright White":"rgb(242, 242, 240)","Burgundy":"rgb(60, 33, 42)","Burnt Sienna Organge":"rgb(148, 69, 64)","Cashmere Blue":"rgb(181, 212, 232)","Champagne":"rgb(243, 213, 151)","Charcoal Grey":"rgb(139, 143, 144)","Chocolate":"rgb(69, 56, 48)","Classic Blue":"rgb(50, 61, 125)","Coral":"rgb(232, 138, 130)","Creamy White":"rgb(236, 235, 207)","Deep Claret":"rgb(117, 37, 62)","Dusty Coral":"rgb(250, 182, 171)","Dusty Rose":"rgb(159, 119, 127)","English Rose":"rgb(217, 187, 189)","Fuchsia":"rgb(154, 63, 114)","Gold":"rgb(185, 166, 125)","Green":"rgb(50, 130, 101)","Green Moss":"rgb(132, 135, 64)","Grey":"rgb(160, 160, 160)","Gumdrop Yellow":"rgb(241, 236, 155)","Hint of Mint":"rgb(180, 233, 215)","Hunter Green":"rgb(22, 79, 60)","Ivory":"rgb(234, 223, 205)","Lavender Grey":"rgb(162, 141, 172)","Mandarin Orange":"rgb(249, 146, 69)","Marine Green":"rgb(102, 182, 173)","Midnight Navy":"rgb(32, 41, 48)","Mint Green":"rgb(201, 228, 222)","Mustard":"rgb(180, 162, 88)","Pastel Blue":"rgb(182, 215, 224)","Pastel Green":"rgb(158, 187, 165)","Pastel Lilac":"rgb(205, 198, 226)","Peach Pink":"rgb(214, 148, 134)","Peach Sherbet":"rgb(244, 192, 171)","Peacock Green":"rgb(31, 153, 142)","Peony":"rgb(162, 48, 97)","Pink Carnation":"rgb(238, 157, 174)","Plum Purple":"rgb(65, 46, 73)","Pool Blue":"rgb(139, 213, 216)","Powder Pink":"rgb(210, 195, 198)","Red":"rgb(148, 34, 34)","Royal Purple":"rgb(102, 76, 137)","Sand":"rgb(159, 153, 137)","Seafoam Green":"rgb(208, 233, 192)","Snow White":"rgb(239, 240, 235)","Soft Pink":"rgb(231, 220, 214)","Spiced Coral":"rgb(255, 138, 126)","Steel Grey":"rgb(146, 155, 164)","Storm grey":"rgb(172, 184, 182)","Tender Yellow":"rgb(226, 223, 180)","Turquoise":"rgb(137, 208, 200)","Twilight Blue":"rgb(49, 56, 102)","Vintage Violet":"rgb(77, 43, 80)","Warm grey":"rgb(132, 129, 122)","Warm Taupe":"rgb(160, 134, 101)","Winter Teal":"rgb(36, 103, 112)","Ash Rose":"rgb(203, 183, 184)","Blood Orange":"rgb(210, 80, 54)","Caramel":"rgb(203, 168, 101)","Cloud Pink":"rgb(211, 182, 176)","Coca Brown":"rgb(87, 63, 51)","Creamy Gold":"rgb(234, 200, 137)","Cyan Blue":"rgb(123, 189, 215)","Frosty Blue":"rgb(185, 216, 234)","Hot Pink":"rgb(236, 126, 165)","Olivel Green":"rgb(179, 187, 110)","Pink Lavender":"rgb(224, 162, 199)","Sky Grey":"rgb(201, 202, 198)","Yellow":"rgb(235, 202, 105)"};
+		var colorMap = {"Apricot Blush":"rgb(240, 192, 178)","Barely Pink":"rgb(255, 219, 223)","Black":"rgb(34, 35, 37)","Blue":"rgb(49, 80, 145)","Blue Topaz":"rgb(109, 157, 219)","Blush":"rgb(246, 211, 185)","Bright White":"rgb(242, 242, 240)","Burgundy":"rgb(60, 33, 42)","Burnt Sienna Organge":"rgb(148, 69, 64)","Cashmere Blue":"rgb(181, 212, 232)","Champagne":"rgb(243, 213, 151)","Charcoal Grey":"rgb(139, 143, 144)","Chocolate":"rgb(69, 56, 48)","Classic Blue":"rgb(50, 61, 125)","Coral":"rgb(232, 138, 130)","Creamy White":"rgb(236, 235, 207)","Deep Claret":"rgb(117, 37, 62)","Dusty Coral":"rgb(250, 182, 171)","Dusty Rose":"rgb(159, 119, 127)","English Rose":"rgb(217, 187, 189)","Fuchsia":"rgb(154, 63, 114)","Gold":"rgb(185, 166, 125)","Green":"rgb(50, 130, 101)","Green Moss":"rgb(132, 135, 64)","Grey":"rgb(160, 160, 160)","Gumdrop Yellow":"rgb(241, 236, 155)","Hint of Mint":"rgb(180, 233, 215)","Hunter Green":"rgb(22, 79, 60)","Ivory":"rgb(234, 223, 205)","Lavender Grey":"rgb(162, 141, 172)","Mandarin Orange":"rgb(249, 146, 69)","Marine Green":"rgb(102, 182, 173)","Midnight Navy":"rgb(32, 41, 48)","Mint Green":"rgb(201, 228, 222)","Mustard":"rgb(180, 162, 88)","Pastel Blue":"rgb(182, 215, 224)","Pastel Green":"rgb(158, 187, 165)","Pastel Lilac":"rgb(205, 198, 226)","Peach Pink":"rgb(214, 148, 134)","Peach Sherbet":"rgb(244, 192, 171)","Peacock Green":"rgb(31, 153, 142)","Peony":"rgb(162, 48, 97)","Pink Carnation":"rgb(238, 157, 174)","Plum Purple":"rgb(65, 46, 73)","Pool Blue":"rgb(139, 213, 216)","Powder Pink":"rgb(210, 195, 198)","Red":"rgb(148, 34, 34)","Royal Purple":"rgb(102, 76, 137)","Sand":"rgb(159, 153, 137)","Seafoam Green":"rgb(208, 233, 192)","Snow White":"rgb(239, 240, 235)","Soft Pink":"rgb(231, 220, 214)","Spiced Coral":"rgb(255, 138, 126)","Steel Grey":"rgb(146, 155, 164)","Storm Grey":"rgb(172, 184, 182)","Tender Yellow":"rgb(226, 223, 180)","Turquoise":"rgb(137, 208, 200)","Twilight Blue":"rgb(49, 56, 102)","Vintage Violet":"rgb(77, 43, 80)","Warm grey":"rgb(132, 129, 122)","Warm Taupe":"rgb(160, 134, 101)","Winter Teal":"rgb(36, 103, 112)","Ash Rose":"rgb(203, 183, 184)","Blood Orange":"rgb(210, 80, 54)","Caramel":"rgb(203, 168, 101)","Cloud Pink":"rgb(211, 182, 176)","Coca Brown":"rgb(87, 63, 51)","Creamy Gold":"rgb(234, 200, 137)","Cyan Blue":"rgb(123, 189, 215)","Frosty Blue":"rgb(185, 216, 234)","Hot Pink":"rgb(236, 126, 165)","Olivel Green":"rgb(179, 187, 110)","Pink Lavender":"rgb(224, 162, 199)","Sky Grey":"rgb(201, 202, 198)","Yellow":"rgb(235, 202, 105)"};
 		var colorInputName = jQuery(".input-box[attrname='Color'] select").attr('name');
 		var colorHtml = '<input id="colorInput" name="' + name + '" type="hidden"/>';
 
@@ -243,28 +243,28 @@ $_shortDescription = $_product->getShortDescription();
     } else {
         window.addEventListener('load', consomerOnload, false);
     }
-</script>    
+</script>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-view">
-	
+
     <div class="product-essential">
-    
+
         <div class="product-img-box">
         	<?php echo $this->getChildHtml('info_tabs') ?>
         </div>
-        
+
         <div class="product-shop">
                 <div class="product-name clear">
                 	<?php include('view/labels.phtml') ?>
                     <h3><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h3>
                     <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
                 </div>
-                
+
 				<?php if($_brand_enabled):
-					
+
 					$_brand_attr = $_config['brand_attr'];
 					if ($_product->getData($_brand_attr)):
-					
+
 							$brandImageExt = trim($_config['brand_image_extension']);
 							$brandPageBasePath = trim($_config['brand_page_base_path']);
 							$brandLinkSearch = $_config['brand_link_search_enabled'] == 1;
@@ -294,13 +294,13 @@ $_shortDescription = $_product->getShortDescription();
                             </div>
                 	<?php endif; ?>
                 <?php endif; ?>
-                
+
                 <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
                 <div class="no-display">
                     <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
                     <input type="hidden" name="related_product" id="related-products-field" value="" />
                 </div>
-                
+
                 <div class="addtocont clear">
                     <?php if($_product->getTypeId() != 'bundle'): ?>
                     	<?php echo $this->getChildHtml('product_type_data') ?>
@@ -311,27 +311,27 @@ $_shortDescription = $_product->getShortDescription();
 					<?php else: ?>
                         <span class="product-code"><?php echo $this->__('Product code:').'<strong>'.$_product->getSku().'</strong>'; ?></span>
                         <?php echo $this->getChildHtml('product_type_data') ?>
-                    <?php endif;?>                
+                    <?php endif;?>
                 </div>
-                
+
 				<?php if($_tierPriceHtml = $this->getTierPriceHtml()): ?>
                 	<div class="clear"><?php echo $_tierPriceHtml; ?></div>
                 <?php endif; ?>
-                
+
 				<?php if($_extraHint = $this->getChildHtml('extrahint')): ?>
                 	<div class="clear"><?php echo $_extraHint ?></div>
                 <?php endif; ?>
-				
+
 				<?php if ($_shortDescription):?>
                     <div class="short-description clear">
                         <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_shortDescription), 'short_description') ?></div>
                     </div>
                 <?php endif;?>
-                
+
                 <?php if($_alertUrls = $this->getChildHtml('alert_urls')): ?>
                 	<div class="product-alerts clear"><?php echo $_alertUrls; ?></div>
                 <?php endif; ?>
-                
+
                 <?php if($_promoMessage = $this->getChildHtml('product_promo_message')): ?>
 				<?php
 					$catesIds = array($_product->getCategoryId());
@@ -351,15 +351,15 @@ $_shortDescription = $_product->getShortDescription();
 					}
 				?>
                 <?php endif; ?>
-                
+
                 <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                     <div class="clear" id="container1"><?php echo $this->getChildChildHtml('container1', '', true, true) ?><div class="clear"></div></div>
                 <?php endif;?>
-                
+
                 <?php if ($_productDataGrouped = $this->getChildHtml('product_type_data_grouped')): ?>
 					<div class="clear"><?php echo $_productDataGrouped; ?></div>
                 <?php endif; ?>
-                
+
 				<?php if (!$this->hasOptions()):?>
                     <div class="add-to-box clear">
                         <?php if($_product->isSaleable()): ?>
@@ -371,17 +371,17 @@ $_shortDescription = $_product->getShortDescription();
                         <?php echo $this->getChildHtml('addto') ?>
                     </div>
                 <?php endif; ?>
-                
+
                 <?php if($_infoAccordion = $this->getChildHtml('info_accordion')): ?>
                 	<div class="clear"><?php echo $_infoAccordion ?></div>
                 <?php endif; ?>
-                
+
 				<?php echo $this->getChildHtml('other');?>
-				
+
 				<?php if ($_product->isSaleable() && $this->hasOptions()):?>
                    	<div class="clear" id="container2"><?php echo $this->getChildChildHtml('container2', '', true, true) ?></div>
                 <?php endif;?>
-                
+
                 </form>
 				<script type="text/javascript">
                 //<![CDATA[
@@ -395,19 +395,20 @@ $_shortDescription = $_product->getShortDescription();
 					jQuery('.rating-links > a').click(function(e){ e.preventDefault(); jQuery('#product_tabs_product_review > a').click(); });
                 //]]>
                 </script>
-                
+
 				<?php if($_use_share && $_share_code): ?>
                 	<div class="clear"><?php echo $_share_code; ?></div>
                 <?php endif; ?>
         </div>
-    
+
     </div>
-    
+
   	<div class="product-collateral">
 		<?php // echo $this->getChildHtml('info_tabs') ?>
         <?php echo $this->getChildHtml('product_additional_data') ?>
     </div>
         <?php echo $this->getChildHtml('related_products') ?>
+        <?php echo $this->getChildHtml('newreview.show') ?>
         <?php echo $this->getChildHtml('showorder.show') ?>
         <?php echo $this->getChildHtml('upsell_products') ?>
 </div>
