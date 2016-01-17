@@ -52,7 +52,11 @@ abstract class BaseModel
                 }
 
                 if ($value) {
-                    $this->{$key} = trim($value);
+					if (is_string($value)) {
+						$this->{$key} = trim($value);
+					} else {
+						$this->{$key} = $value;
+					}
                 }
             }
         }

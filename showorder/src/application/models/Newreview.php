@@ -80,6 +80,44 @@ class NewreviewModel extends BaseModel
     );
 
     /**
+     * 添加属性  
+     */
+    protected static $addProperty = array(
+        NMRED_NEWREVIEW => array(
+            'username' => true,
+            'context'  => true,
+            'review_id'   => true,
+            'product_id'  => true,       
+            'entity_id'   => true,       
+            'create_time' => true,       
+        ),                      
+        NMRED_NEWREVIEW_IMG => array(
+            'review_id'=> true,
+            'big_img'  => true,       
+            'img'	   => true,       
+        ),                      
+    );
+
+    /**
+     * 修改属性  
+     */
+    protected static $modProperty = array(
+        NMRED_NEWREVIEW => array(
+            'username' => true,
+            'context'  => true,
+            'review_id'   => true,
+            'product_id'  => true,       
+            'entity_id'   => true,       
+            'create_time' => true,       
+        ),                      
+        NMRED_NEWREVIEW_IMG => array(
+            'review_id'=> true,
+            'big_img'  => true,       
+            'img'	   => true,       
+        ),                      
+    );
+
+    /**
      * 数据表对象 
      * 
      * @var mixed
@@ -155,6 +193,49 @@ class NewreviewModel extends BaseModel
     }
 
     // }}}
+    // {{{ public function showProduct()
+    
+    /**
+     * 产品列表 
+     * 
+     * @access public
+     * @return void
+     */
+    public function getProduct($condition)
+    { 
+        $table = new Db_Table('catalog_product_entity', $this->getDbAdapter());
+		$select = new Zend\Db\Sql\Select();
+		$select->from(array('e' => 'catalog_product_entity'))
+			   ->join(array('v' => 'catalog_product_entity_varchar'), 'e.entity_id=v.entity_id', array('value'),
+					  \Zend\Db\Sql\Select::JOIN_LEFT)
+			   ->where(array('v.attribute_id' => 97));
+
+		if (isset($condition['isCount']) && $condition['isCount']) {
+			$select->columns(array('num' => new Zend\Db\Sql\Expression('count(*)')));
+		} else {
+			$select->columns($condition['columns'], true);
+		}
+
+
+		// 分页处理
+		if (isset($condition['limit'])) {
+			$select->limit((int)$condition['limit']);
+		}
+		if (isset($condition['offset'])) {
+			$select->offset((int)$condition['offset']);
+		}
+
+		$result = $table->selectWith($select);
+		if (!$result) {
+			return array();
+		}
+		
+		$list = $result->toArray();
+
+		return $list;
+    }
+
+    // }}}
     // {{{ public function infoReview()
     
     /**
@@ -187,6 +268,99 @@ class NewreviewModel extends BaseModel
 		}
 
 		return $list;
+    }
+
+    // }}}
+    // {{{ public function addReview()
+    
+    /**
+     * 添加评论 
+     * 
+     * @access public
+     * @return void
+     */
+    public function addReview()
+    { 
+        $result = $this->table->insert($this->getProperty(NMRED_NEWREVIEW, true)); 
+		$imgInfo = $this->getProperty(NMRED_NEWREVIEW_IMG, true);
+		if (isset($imgInfo['img']) && !empty($imgInfo['img'])) {
+			$table = new Db_Table(NMRED_NEWREVIEW_IMG, $this->getDbAdapter());
+			foreach ($imgInfo['img'] as $info) {
+				$data = array(
+					'review_id' => $imgInfo['review_id'],
+					'big_img'   => $info['big_img'],		
+					'img'   => $info['img'],		
+				);
+				$table->insert($data); 
+			}
+		}
+
+        return $result;
+    }
+
+    // }}}
+    // {{{ public function delReviewImg()
+    
+    /**
+     * 删除评论图片 
+     * 
+     * @access public
+     * @return void
+     */
+    public function delReviewImg($ids)
+    { 
+		$table = new Db_Table(NMRED_NEWREVIEW_IMG, $this->getDbAdapter());
+		$where = new \Zend\Db\Sql\Where();
+		$where->in('review_id', $ids);
+        $result = $table->delete($where); 
+        return $result;
+    }
+
+    // }}}
+    // {{{ public function modReview()
+    
+    /**
+     * 修改评论 
+     * 
+     * @access public
+     * @return void
+     */
+    public function modReview($id)
+    { 
+        //$this->checkProperty();
+        $result = $this->table->update($this->getModProperty(NMRED_NEWREVIEW, true), array('review_id' => $id)); 
+		$this->delReviewImg(array($id));
+		$imgInfo = $this->getModProperty(NMRED_NEWREVIEW_IMG, true);
+		if (isset($imgInfo['img']) && !empty($imgInfo['img'])) {
+			$table = new Db_Table(NMRED_NEWREVIEW_IMG, $this->getDbAdapter());
+			foreach ($imgInfo['img'] as $info) {
+				$data = array(
+					'review_id' => $imgInfo['review_id'],
+					'big_img'   => $info['big_img'],		
+					'img'   => $info['img'],		
+				);
+				$table->insert($data); 
+			}
+		}
+        return $result;
+    }
+
+    // }}}
+    // {{{ public function delReview()
+    
+    /**
+     * 删除评论 
+     * 
+     * @access public
+     * @return void
+     */
+    public function delReview($ids)
+    { 
+		$where = new \Zend\Db\Sql\Where();
+		$where->in('review_id', $ids);
+        $result = $this->table->delete($where); 
+		$this->delReviewImg($ids);
+        return $result;
     }
 
     // }}}
