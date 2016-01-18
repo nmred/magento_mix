@@ -168,7 +168,7 @@ class ConfirmSize {
 				if (in_array(209, $categroy)) {
 					continue;	
 				}
-				$dressesCates = array(223, 222, 221, 220, 219, 218, 216, 208, 204, 203);
+				$dressesCates = array(221, 220, 219, 218, 208, 204, 203);
 				$dresses = array_intersect($dressesCates, $categroy);
 				$isDresses = false;
 				if (!empty($dresses)) {
