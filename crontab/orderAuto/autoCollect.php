@@ -222,11 +222,7 @@ class autoCollect {
 			foreach ($items as $item) { 
 				$ritem = array();
 				$options = unserialize($item['product_options']);
-				if (isset($options['info_buyRequest']['qty'])) {
-					$ritem['qty'] = $options['info_buyRequest']['qty'];
-				} else {
-					$ritem['qty'] = 0;
-				}
+				$ritem['qty'] = $item['qty_ordered'];
 				$ritem['id'] = $item['sku'];
 				$ritem['color'] = '';
 				$ritem['size']  = $item['name'];
