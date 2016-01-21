@@ -105,7 +105,7 @@ class ConfirmSize {
 	 * @return void
 	 */
 	protected function getOrderItems($orderId) {
-		$sql = 'select product_id,sku,name '
+		$sql = 'select * '
 			   . ' from sales_flat_order_item where order_id=' . $orderId;		
 		$stmt = $this->connection->query($sql, PDO::FETCH_ASSOC);
 		if (!$stmt) {
@@ -173,7 +173,7 @@ class ConfirmSize {
 				$isDresses = false;
 				if (!empty($dresses)) {
 					$isDresses = true;	
-					$dressesCount++;
+					$dressesCount += $item['qty_ordered'];
 				}
 
 				if (false === strpos($item['name'], 'Lace')) {
