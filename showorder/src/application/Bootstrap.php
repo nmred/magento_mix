@@ -42,6 +42,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract
         define('NMRED_SHOWORDER', Yaf_Registry::get('config')->table->nmred_showorder);
         define('NMRED_NEWREVIEW', Yaf_Registry::get('config')->table->nmred_newreview);
         define('NMRED_NEWREVIEW_IMG', Yaf_Registry::get('config')->table->nmred_newreview_img);
+        define('NMRED_PRODUCT_COLOR', Yaf_Registry::get('config')->table->nmred_product_color);
     }
 
     // }}}

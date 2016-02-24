@@ -60,4 +60,25 @@ class Nmred_Newreview_IndexController extends Mage_Core_Controller_Front_Action
     }
 
 	// }}}
+	// {{{ public function infoAction()
+
+    public function colorAction() {
+		$colorId = $_GET['color_id'];
+		$id = $_GET['product_id'];
+		$result = Mage_Curl::run('http://show.mixbridal.com/productcolor/info?id=' . $id . '&color_id=' . $colorId, 'GET', 5);
+		$result = json_decode($result, true);
+		$data = array();
+		if (isset($result['data']) && !empty($result['data'])) {
+			$data = $result['data'];
+		} else {
+			$data = array();	
+		}
+		
+		header('Content-type: application/json;charset=utf-8');	
+		$status = !empty($data) ? 1 : 0;
+		echo json_encode(array('status' => 1, 'data' => $data));
+		return 0;
+    }
+
+	// }}}
 }

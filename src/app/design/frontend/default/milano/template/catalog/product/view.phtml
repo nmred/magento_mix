@@ -197,7 +197,7 @@ $_shortDescription = $_product->getShortDescription();
             $$(".addtocont .product-code")[0].style.cssText="width: 100%;";
             $$(".addtocont .price-box")[0].style.cssText="width: 100px;float: left;margin-top: 33px;";
             $$(".addtocont .tier-prices")[0].style.cssText="float:right;padding:5px;";
-	    if ($$(".addtocont .price-box .special-price .price")) {
+	    if (typeof $$(".addtocont .price-box .special-price .price")[0] != "undefined") {
 		$$(".addtocont .price-box .special-price .price")[0].style.cssText="font-size: 20px;"
 		$$(".addtocont .price-box .old-price .price")[0].style.cssText="font-size: 15px;"
 	    }
@@ -236,6 +236,60 @@ $_shortDescription = $_product->getShortDescription();
 		jQuery(".nmred_color_selecte_name").html(title);
 		jQuery("#colorInput").val(value);
 		jQuery(".input-box[attrname='Color'] option[value='" + value + "']").selected();
+		displayProductImg();
+	}
+
+	function displayProductImg() {
+		var productId = jQuery("#product_addtocart_form [name=product]").val();	
+		var colorId = jQuery("#colorInput").val();
+		if (colorId == '') {
+			colorId = jQuery(".nmred_color_box a").first().attr('value');
+		}
+		jQuery.ajax({
+			type: 'GET',
+				url: 'http://www.mixbridal.com/newreview/index/color?product_id=' + productId + '&color_id=' + colorId,
+			dataType: 'json',
+			success: function (data) {
+				if (data.status == "0" || data.data.length == 0) {
+					return false;
+				}
+				var imgs = data.data;
+				if (jQuery(".nmred_new_image").length == 0) {
+					var _mainHtml = [];
+					_mainHtml.push('<div id="wrap" class="nmred_new_image" style="top:0px;z-index:99;position:relative;">');
+					_mainHtml.push('<a id="zoom" class=" cloud-zoom" rel="position:\'inside\', smoothMove:2, showTitle: false" href="javascript:void(0);"');
+					_mainHtml.push(' style="position: relative; display: block;">');
+					_mainHtml.push('<img class="zoom-image" src="' + imgs[0].url + '" width="645" height="860" alt="" title="" style="display: block;"></a><div class="mousetrap" style="background-image:none;z-index:999;position:absolute;width:[object Object]px;height:[object Object]px;left:0px;top:0px;"></div></div>');
+					jQuery(".main-image").html(_mainHtml.join(''));
+				} else {
+					var _url = imgs[0].url; 
+					jQuery(".cloud-zoom").attr('href', _url);
+					jQuery(".zoom-image").attr('src', _url);
+				}
+				var _html = [];
+				for (var i = 0; i < data.data.length; i++) {
+					if ((parseInt(i) + 1) == data.data.length) {
+						_html.push('<div class="slide last">');	
+					} else {
+						_html.push('<div class="slide">');
+					}
+					_html.push("<a class=\"zoom-thumbnail gallery-image cloud-zoom-gallery\" rel=\"useZoom: 'zoom', smallImage: '");
+					var _url = data.data[i].url;
+					_html.push(_url + "'\" href=\"javascript:void(0);\"");
+					_html.push(" data-easyzoom-source=\"" + _url + "\" title=\"\">");
+					_html.push("<img src=\"" + _url + "\" width=\"68\" height=\"68\" alt=\"\"></a>");
+					_html.push("</div>");
+				}
+				jQuery(".zoom-gallery").html(_html.join(''));
+				jQuery(".zoom-thumbnail").on("click", function(){
+					var _url = jQuery(this).attr('data-easyzoom-source'); 
+					jQuery(".cloud-zoom").attr('href', _url);
+					jQuery(".zoom-image").attr('src', _url);
+					return false;
+				});
+			}
+		});
+
 	}
 
     if (document.all) {
@@ -243,6 +297,7 @@ $_shortDescription = $_product->getShortDescription();
     } else {
         window.addEventListener('load', consomerOnload, false);
     }
+
 </script>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-view">
