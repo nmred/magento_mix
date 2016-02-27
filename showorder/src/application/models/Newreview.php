@@ -160,6 +160,7 @@ class NewreviewModel extends BaseModel
 			$select->columns($condition['columns'], true);
 		}
 		$select->where(array('product_id' => $condition['product_id']));
+		$select->order('create_time DESC');
 
 
 		// 分页处理
