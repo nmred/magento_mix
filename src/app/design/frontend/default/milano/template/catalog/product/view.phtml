@@ -178,6 +178,8 @@ $_shortDescription = $_product->getShortDescription();
 			$priceLineView = false;
 		}
 	}
+	?>
+	<?php
 	if ($priceLineView) {
     ?>
         var nmredpriceMin=Number.MAX_VALUE;
@@ -215,10 +217,30 @@ $_shortDescription = $_product->getShortDescription();
 
 		jQuery(".nmred_color_selected").css("background-color", "#fff")
 
+		currentColor = jQuery(".short-description .std").html();
+		if (currentColor.indexOf('Picture Color:') == -1) {
+			currentColor = "";
+		} else {
+			currentColor = currentColor.replace("Picture Color: ", "");
+		}
+		currentValue = 0;
+		for (i = 1; i < data.length; i++) {
+			var title = data[i].innerHTML.trim();
+			if (title == currentColor) {
+				currentValue = data[i].value;
+			}
+		}
+		if (currentColor != "") {
+			var color = colorMap[currentColor];
+			colorHtml += '<a value="' + currentValue +'" onclick="changeColor(this, \''+ currentColor + '\', '+ currentValue +');opConfig.reloadPrice();"><span style="background-color:' + color + '"></span><label>' + currentColor +'</label></a>'
+		}
 		for(i = 1; i< data.length; i++) {
 			var title = data[i].innerHTML.trim();
+			if (title == currentColor) {
+				continue;
+			}
 			var color = colorMap[title];
-			colorHtml += '<a value="' + data[i].value +'" onclick="changeColor(this);opConfig.reloadPrice();"><span style="background-color:' + color + '"></span><label>' + title +'</label></a>'
+			colorHtml += '<a value="' + data[i].value +'" onclick="changeColor(this, \''+ currentColor + '\', '+ currentValue +');opConfig.reloadPrice();"><span style="background-color:' + color + '"></span><label>' + title +'</label></a>'
 		}
 		jQuery(".input-box[attrname='Color'] select").hide();
 		jQuery(".nmred_color_box").html(colorHtml);
@@ -226,7 +248,7 @@ $_shortDescription = $_product->getShortDescription();
 		// 颜色色块代码======end
     }
 
-	function changeColor(obj) {
+	function changeColor(obj, curColor, curValue) {
 		var title = jQuery(obj).find("label").html();
 		var value = jQuery(obj).attr("value");
 		jQuery(obj).siblings().removeClass("background")
@@ -236,14 +258,28 @@ $_shortDescription = $_product->getShortDescription();
 		jQuery(".nmred_color_selecte_name").html(title);
 		jQuery("#colorInput").val(value);
 		jQuery(".input-box[attrname='Color'] option[value='" + value + "']").selected();
-		displayProductImg();
+		displayProductImg(curColor, curValue);
 	}
 
-	function displayProductImg() {
-		var productId = jQuery("#product_addtocart_form [name=product]").val();	
+	function displayProductImg(curColor, curValue) {
+		if (jQuery("#new_color_text").length == 0) {
+			jQuery("#product_tabs_gallery_contents").prepend('<p id="new_color_text">This is a photoshopped image. It is advised that you order <a href="http://www.mixbridal.com/color-swatches.html" target="_blank"><FONT COLOR=fc0214,FONT SIZE=2>colour swatches</FONT></a> to view colours in person!</p>');
+		}
+		console.info(curColor);
+		console.info(curValue);
+		var productId = jQuery("#product_addtocart_form [name=product]").val();
 		var colorId = jQuery("#colorInput").val();
 		if (colorId == '') {
 			colorId = jQuery(".nmred_color_box a").first().attr('value');
+		}
+		console.info(curValue);
+		console.info(colorId);
+		if (colorId == curValue) {
+			jQuery(".main-image").show();
+			jQuery(".more-views").show();
+			jQuery("#new_product_img").hide();
+			jQuery("#new_product_views").hide();
+			return;
 		}
 		jQuery.ajax({
 			type: 'GET',
@@ -254,22 +290,24 @@ $_shortDescription = $_product->getShortDescription();
 					return false;
 				}
 				var imgs = data.data;
+				var _mainHtml = [];
 				if (jQuery(".nmred_new_image").length == 0) {
 					var _mainHtml = [];
-					_mainHtml.push('<div id="wrap" class="nmred_new_image" style="top:0px;z-index:99;position:relative;">');
+					_mainHtml.push('<div class="main-image" id="new_product_img"><div id="wrap" class="nmred_new_image" style="top:0px;z-index:99;position:relative;">');
 					_mainHtml.push('<a id="zoom" class=" cloud-zoom" rel="position:\'inside\', smoothMove:2, showTitle: false" href="javascript:void(0);"');
 					_mainHtml.push(' style="position: relative; display: block;">');
 					_mainHtml.push('<img class="zoom-image" src="' + imgs[0].url + '" width="645" height="860" alt="" title="" style="display: block;"></a><div class="mousetrap" style="background-image:none;z-index:999;position:absolute;width:[object Object]px;height:[object Object]px;left:0px;top:0px;"></div></div>');
-					jQuery(".main-image").html(_mainHtml.join(''));
+					_mainHtml.push('</div>');
 				} else {
-					var _url = imgs[0].url; 
-					jQuery(".cloud-zoom").attr('href', _url);
-					jQuery(".zoom-image").attr('src', _url);
+					var _url = imgs[0].url;
+					jQuery("#new_product_img .cloud-zoom").attr('href', _url);
+					jQuery("#new_product_img .zoom-image").attr('src', _url);
 				}
+				_mainHtml.push('<div class="more-views " id="new_product_views" style="width: 172px;"><div class="zoom-gallery slider">');
 				var _html = [];
 				for (var i = 0; i < data.data.length; i++) {
 					if ((parseInt(i) + 1) == data.data.length) {
-						_html.push('<div class="slide last">');	
+						_html.push('<div class="slide last">');
 					} else {
 						_html.push('<div class="slide">');
 					}
@@ -280,9 +318,21 @@ $_shortDescription = $_product->getShortDescription();
 					_html.push("<img src=\"" + _url + "\" width=\"68\" height=\"68\" alt=\"\"></a>");
 					_html.push("</div>");
 				}
-				jQuery(".zoom-gallery").html(_html.join(''));
+				if (jQuery(".nmred_new_image").length == 0) {
+					_mainHtml.push(_html.join(''));
+					_mainHtml.push('</div></div>');
+					jQuery(".product-media").append(_mainHtml.join(''));
+				} else {
+					jQuery("#new_product_views").html(_html.join(""));
+				}
+				// 首先全部隐藏
+				jQuery(".main-image").hide();
+				jQuery(".more-views").hide();
+				jQuery("#new_product_img").show();
+				jQuery("#new_product_views").show();
+
 				jQuery(".zoom-thumbnail").on("click", function(){
-					var _url = jQuery(this).attr('data-easyzoom-source'); 
+					var _url = jQuery(this).attr('data-easyzoom-source');
 					jQuery(".cloud-zoom").attr('href', _url);
 					jQuery(".zoom-image").attr('src', _url);
 					return false;
