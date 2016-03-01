@@ -262,18 +262,14 @@ $_shortDescription = $_product->getShortDescription();
 	}
 
 	function displayProductImg(curColor, curValue) {
-		if (jQuery("#new_color_text").length == 0) {
-			jQuery("#product_tabs_gallery_contents").prepend('<p id="new_color_text">This is a photoshopped image. It is advised that you order <a href="http://www.mixbridal.com/color-swatches.html" target="_blank"><FONT COLOR=fc0214,FONT SIZE=2>colour swatches</FONT></a> to view colours in person!</p>');
-		}
-		console.info(curColor);
-		console.info(curValue);
 		var productId = jQuery("#product_addtocart_form [name=product]").val();
 		var colorId = jQuery("#colorInput").val();
 		if (colorId == '') {
 			colorId = jQuery(".nmred_color_box a").first().attr('value');
 		}
-		console.info(curValue);
-		console.info(colorId);
+		if (jQuery("#new_color_text").length == 0 && colorId != curValue) {
+			jQuery("#product_tabs_gallery_contents").prepend('<p id="new_color_text">This is a photoshopped image. It is advised that you order <a href="http://www.mixbridal.com/color-swatches.html" target="_blank"><FONT COLOR=fc0214,FONT SIZE=2>colour swatches</FONT></a> to view colours in person!</p>');
+		}
 		if (colorId == curValue) {
 			jQuery(".main-image").show();
 			jQuery(".more-views").show();
