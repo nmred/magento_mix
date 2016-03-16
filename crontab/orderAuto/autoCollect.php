@@ -41,6 +41,14 @@ class autoCollect {
 	 */
 	protected $xslFiles = array();
 
+	/**
+	 * timediff 
+	 * 
+	 * @var float
+	 * @access protected
+	 */
+	protected $timediff = 2;
+
 	// }}}
 	// {{{ functions
 	// {{{ public function __construct()
@@ -74,7 +82,7 @@ class autoCollect {
 	 * @return void
 	 */
 	protected function getOrderList($type = self::ORDER_TYPE_PROCESSING) {
-		$startTime = (int)(time() / 86400) * 86400 - 86400 - 3600 * 8 - 0 * 86400;
+		$startTime = (int)(time() / 86400) * 86400 - 86400 - 3600 * 8 - $this->timediff * 86400;
 		$startTimeStr = date('Y-m-d H:i:s', $startTime);
 		$endTimeStr = date('Y-m-d H:i:s', $startTime + 86400);
 		$sql = 'select entity_id,customer_email,customer_firstname, increment_id, shipping_address_id'
@@ -277,9 +285,9 @@ class autoCollect {
 			}
 		}
 	
-		$filename = date('Ymd', time()) . '_dresses';
+		$filename = date('Ymd', time() - $this->timediff * 86400) . '_dresses';
 		$this->createXsl($dressesResult, $filename);
-		$filename = date('Ymd', time()) . '_swatches';
+		$filename = date('Ymd', time() - $this->timediff * 86400) . '_swatches';
 		$this->createXsl($result, $filename);
 		var_dump($this->sendMail());
 		foreach ($this->xslFiles as $filename) {
@@ -317,7 +325,7 @@ class autoCollect {
 
 		$mail->isHTML(true);                                  // Set email format to HTML
 
-		$mail->Subject = '每日订单汇总-' . date('Y-m-d', time());
+		$mail->Subject = '每日订单汇总-' . date('Y-m-d', time() - $this->timediff * 86400);
 		$mail->Body    = '订单表见附件';
 		$mail->AltBody = '订单表见附件';
 		foreach ($this->xslFiles as $filename) {
@@ -351,7 +359,7 @@ class autoCollect {
 	protected function createXsl($data, $filename) {
 		$objPHPExcel = new PHPExcel();
 		$objWorksheet = $objPHPExcel->getActiveSheet();
-		$date = date('M d, Y', time());
+		$date = date('M d, Y', time() - $this->timediff * 86400);
 		$objWorksheet->setCellValue('A1', 'MIX BRIDAL ORDERS (' . $date . ')');
 		$objWorksheet->getRowDimension('1')->setRowHeight(60);
 		$objWorksheet->getStyle('A1')->getFont()->setBold(true);
