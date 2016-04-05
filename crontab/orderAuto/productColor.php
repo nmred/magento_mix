@@ -106,18 +106,20 @@ class ProductColor {
 	 * @access protected
 	 * @return void
 	 */
-	protected function nonExists($reviewIds) {
-		$sql = 'select review_id from syncreview_entity where review_id in (' . implode(',', $reviewIds) . ')';;
+	protected function nonExists($id, $colorId, $imageId) {
+		$sql = 'select entity_id, color_id, image_id from product_color where entity_id=' . $id 
+				. ' and color_id=' . $colorId . ' and image_id=' . $imageId;
 		$stmt = $this->connection->query($sql, PDO::FETCH_ASSOC);
-		if (!$stmt) {
+		if (!$stmt || empty($stmt)) {
 			return array();
 		}
 		
+		$result = array();
 		foreach ($stmt as $row) {
-			unset($reviewIds[array_search($row['review_id'], $reviewIds)]);
+			$result[] = $row;
 		}
 
-		return $reviewIds;
+		return count($result);
 	}
 
 	// }}}
@@ -232,6 +234,9 @@ class ProductColor {
 		}
 		foreach ($lists as $colorId => $imgs) {
 			foreach ($imgs as $imageId => $url) {
+				if ($this->nonExists($productInfo['entity_id'], $colorId, $imageId)) {		
+					continue;
+				}
 				$sql = 'insert into product_color (entity_id, color_id, image_id, url) 
 						VALUES(' . $productInfo['entity_id'] . ', ' . $colorId 
 								 . ',' . $imageId . ',\'' . $url . '\')';
