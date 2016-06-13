@@ -47,7 +47,7 @@ class autoCollect {
 	 * @var float
 	 * @access protected
 	 */
-	protected $timediff = 2;
+	protected $timediff = 0;
 
 	// }}}
 	// {{{ functions
