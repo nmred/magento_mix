@@ -298,8 +298,9 @@ EOT;
 		$title = 'Urgent: Size confirmation request from Mix Bridal (' . $orderInfo['id'] . ')';
 		$body = <<<EOT
 Hi {$orderInfo['customer_firstname']},<br/>
+
 <br/>
-Thanks for your order with us, we've confirmed your payment, but before we start tailoring the dresses for you, could you firstly confirm with us if your bridesmaids compared your body measurements with our size chart before deciding their sizes? As we are running US sizes for the current FHFH bridesmaid dresses we carry. Thanks!<br/>
+Thanks for your order with us, we've confirmed your payment, but before we start tailoring the dresses for you, could you firstly confirm with us if your bridesmaids compared their body measurements with our size chart before deciding their sizes? As we are running US sizes for the current FHFH bridesmaid dresses we carry. Thanks!
 <br/>
 FHFH Size Chart:
 <br/>
@@ -308,7 +309,7 @@ http://www.mixbridal.com/how-to-measure-size-chart.html
 <br/>
 <br/>
 
-If you chose custom size for all or some of your dresses, please simply reply to us with the exact measurements for each dress, we will help add the measurements to your order for you!
+If you chose custom size for all or some of your dresses, please simply reply to us with the exact measurements for each dress, we will help add the measurements to your order for you! 
 <br/>
 <br/>
 
