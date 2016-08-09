@@ -157,7 +157,7 @@ class InsertPrice {
 
 		$price = $productInfo['price'] - 10;
 		if ($isflag) {
-			$price -= 5;
+			$price -= 10;
 		}
 		$sql = 'insert into catalog_product_entity_group_price (entity_id,all_groups,customer_group_id,value,website_id) values (' . $productInfo['id'] . ',0,5,' . $price. ',0);';
 		$affected = $this->connection->exec($sql);	
