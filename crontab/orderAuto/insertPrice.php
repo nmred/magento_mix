@@ -146,13 +146,22 @@ class InsertPrice {
 	 * @return void
 	 */
 	protected function insertData($productInfo) {
+		$price = $productInfo['price'] - 20;
+		$isflag = false;
+		if ($price >= 159.99) {
+			$price = $price - 10;	
+			$isflag = true;
+		}
+		$sql = 'insert into catalog_product_entity_group_price (entity_id,all_groups,customer_group_id,value,website_id) values (' . $productInfo['id'] . ',0,7,' . $price. ',0);';
+		$affected = $this->connection->exec($sql);		
+
 		$price = $productInfo['price'] - 10;
+		if ($isflag) {
+			$price -= 5;
+		}
 		$sql = 'insert into catalog_product_entity_group_price (entity_id,all_groups,customer_group_id,value,website_id) values (' . $productInfo['id'] . ',0,5,' . $price. ',0);';
 		$affected = $this->connection->exec($sql);	
 		$sql = 'insert into catalog_product_entity_group_price (entity_id,all_groups,customer_group_id,value,website_id) values (' . $productInfo['id'] . ',0,6,' . $price . ',0);';
-		$affected = $this->connection->exec($sql);		
-		$price = $productInfo['price'] - 20;
-		$sql = 'insert into catalog_product_entity_group_price (entity_id,all_groups,customer_group_id,value,website_id) values (' . $productInfo['id'] . ',0,7,' . $price. ',0);';
 		$affected = $this->connection->exec($sql);		
 	}
 
