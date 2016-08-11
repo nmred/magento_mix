@@ -713,7 +713,12 @@ class Mage_Catalog_Model_Product extends Mage_Catalog_Model_Abstract
         //If ($price !== null) {
         //    return $price;
         //}
-        return $this->getPriceModel()->getFinalPrice($qty, $this);
+		if (isset($this->_data['final_price1']) && $this->_data['final_price1']) {
+			return $this->_data['final_price1'];
+		}
+		$price = $this->getPriceModel()->getFinalPrice($qty, $this);
+		$this->_data['final_price1'] = $price;
+		return $price;
     }
 
     /**
