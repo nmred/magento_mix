@@ -322,7 +322,10 @@ $$(".moreinfo .price-box").each(function(ele) { var flag = ''; var nmredpriceMin
 				var bIsAndroid = sUserAgent.match(/android/i) == "android";
 				var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
 				var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
-				if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) ){
+
+				var bhuawei = sUserAgent.match(/u;/i) == 'u;';
+
+				if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM || bhuawei) ){
 					return false;
 				} else {
 					return true;
