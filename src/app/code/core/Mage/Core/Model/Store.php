@@ -779,8 +779,7 @@ class Mage_Core_Model_Store extends Mage_Core_Model_Abstract
         $default = $this->getConfig(Mage_Directory_Model_Currency::XML_PATH_CURRENCY_DEFAULT);
 		//$curlData = Mage_Curl::run('ipinfo.io/' . $_SERVER['REMOTE_ADDR'], 'GET', '1', array());
 		//$curlData = Mage_Curl::run('ipinfo.io/8.8.8.8' , 'GET', '1', array());
-		$countryCode = json_decode($curlData, true);
-		$countryCode = $_ENV['COUNTRY_CODE'];
+		$countryCode = $_SERVER['COUNTRY_CODE'];
 		switch ($countryCode) {
 			case 'CA':
 				$result = 'CAD';
