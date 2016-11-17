@@ -325,7 +325,8 @@ $$(".moreinfo .price-box").each(function(ele) { var flag = ''; var nmredpriceMin
 
 				var bhuawei = sUserAgent.match(/u;/i) == 'u;';
 
-				if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM || bhuawei) ){
+				// bIsIpad bIsWM
+				if (!(bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bhuawei) ){
 					return false;
 				} else {
 					return true;
