@@ -80,6 +80,13 @@ jQuery(document).ready(function() {
             imgWidthChange: true,
             stepsSlide: true
         });
+		// Fix the heights of slider images
+		var width0 = jQuery('.review-pic-slider-content li:eq(0)').width();
+		if (jQuery('.review-pic-slider-content li img').length >= 1) {
+			jQuery('.review-pic-slider-content li img').each(function() {
+				jQuery(this).css('height', 'auto').css('width', width0 + 'px');
+			});
+		}
 
         jQuery(window).scrollTop(0);
 
@@ -114,6 +121,13 @@ jQuery(document).ready(function() {
             imgWidthChange: true,
             stepsSlide: true
         });
+		// Fix the heights of slider images
+		var width0 = jQuery('.review-pic-slider-content li:eq(0)').width();
+		if (jQuery('.review-pic-slider-content li img').length >= 1) {
+			jQuery('.review-pic-slider-content li img').each(function() {
+				jQuery(this).css('height', 'auto').css('width', width0 + 'px');
+			});
+		}
 
         return false;
     });
