@@ -172,7 +172,8 @@ $_shortDescription = $_product->getShortDescription();
 	if ($cateObj) {
 		$parentCates = $_product->getCategory()->getParentIds();
 		$catesIds = array_merge($catesIds, $parentCates);
-		if (in_array(204, $catesIds) || in_array(208, $catesIds)) {
+		//if (in_array(204, $catesIds) || in_array(208, $catesIds)) {
+		if (in_array(218, $catesIds)) {
 			$priceLineView = true;
 		} else {
 			$priceLineView = false;
