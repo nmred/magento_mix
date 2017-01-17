@@ -299,7 +299,9 @@ if(!$_collectionSize): ?>
 	<?php
 	if ($_currentCategory = Mage::registry('current_category')) {
 		$current = $_currentCategory->getId();
-		if (!in_array($current, array(207, 209))) {
+		$parentCates = $_currentCategory->getParentIds();
+		$catesIds = array_merge($current, $parentCates);
+		if (in_array($current, array(218))) {
 	?>
 				if (browserUANmred()) {
 
