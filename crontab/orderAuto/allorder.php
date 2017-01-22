@@ -226,7 +226,7 @@ class autoCollect {
 
 			$processing[$key]['price'] = 0;
 			foreach ($items as $item) { 
-				$processing[$key]['price'] += $item['row_total'];
+				$processing[$key]['updated_at'] = $item['updated_at'];
 			}
 		}
 		var_dump($processing);
@@ -304,10 +304,10 @@ class autoCollect {
 
 		$currentLine = 2;
 		$data = array_values($data);
-		$columns = array('A', 'B');
 		foreach ($data as $k => $info) {
 			$objWorksheet->setCellValue('A'. $currentLine, $info['customer_email']);	
 			$objWorksheet->setCellValue('B'. $currentLine, $info['price']);	
+			$objWorksheet->setCellValue('C'. $currentLine, $info['updated_at']);	
 			$currentLine++;
 		}
 		echo date('H:i:s') , " Write to Excel2007 format" , PHP_EOL;
